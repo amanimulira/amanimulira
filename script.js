@@ -444,6 +444,54 @@ class NoiseOverlay {
 // ============================================================
 // Enhanced Scroll Reveal
 // ============================================================
+class Carousel {
+    constructor() {
+        this.track = document.getElementById('carousel-track');
+        this.prevBtn = document.getElementById('carousel-prev');
+        this.nextBtn = document.getElementById('carousel-next');
+        this.dotsWrap = document.getElementById('carousel-dots');
+        if (!this.track) return;
+
+        this.cards = [...this.track.querySelectorAll('.project-card')];
+        this.current = 0;
+
+        this.buildDots();
+        this.prevBtn.addEventListener('click', () => this.go(this.current - 1));
+        this.nextBtn.addEventListener('click', () => this.go(this.current + 1));
+        this.track.addEventListener('scroll', () => this.onScroll(), { passive: true });
+    }
+
+    buildDots() {
+        this.cards.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Go to project ${i + 1}`);
+            dot.addEventListener('click', () => this.go(i));
+            this.dotsWrap.appendChild(dot);
+        });
+        this.dots = [...this.dotsWrap.querySelectorAll('.carousel-dot')];
+    }
+
+    go(index) {
+        const i = Math.max(0, Math.min(index, this.cards.length - 1));
+        this.cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    }
+
+    onScroll() {
+        const trackLeft = this.track.scrollLeft;
+        let closest = 0;
+        let minDist = Infinity;
+        this.cards.forEach((card, i) => {
+            const dist = Math.abs(card.offsetLeft - trackLeft - parseInt(getComputedStyle(this.track).paddingLeft));
+            if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        if (closest !== this.current) {
+            this.current = closest;
+            this.dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+        }
+    }
+}
+
 class ScrollReveal {
     constructor() {
         // Standard reveals for labels and intros
@@ -456,9 +504,9 @@ class ScrollReveal {
             el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
         });
 
-        // Alternate project reveals: odd from left, even from right
-        document.querySelectorAll('.project').forEach((el, i) => {
-            el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        // Carousel cards reveal
+        document.querySelectorAll('.project-card').forEach(el => {
+            el.classList.add('reveal-scale');
         });
 
         // Scale reveals for service items
@@ -478,8 +526,7 @@ class ScrollReveal {
         document.querySelectorAll('.deco').forEach(el => el.classList.add('reveal'));
 
         // Stagger groups
-        const approachGrid = document.querySelector('.approach-grid');
-        if (approachGrid) approachGrid.classList.add('reveal-stagger');
+        document.querySelectorAll('.experience-card').forEach(el => el.classList.add('reveal'));
 
         const stackColumns = document.querySelector('.stack-columns');
         if (stackColumns) stackColumns.classList.add('reveal-stagger');
@@ -612,6 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new ActiveNav();
     new NavScroll();
     new ScrollReveal();
+    new Carousel();
 
     // Mark mobile
     if (isMobile()) document.body.classList.add('is-mobile');

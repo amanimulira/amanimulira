@@ -33,7 +33,7 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="#work">Work</a>
-                <a href="#approach">Approach</a>
+                <a href="#experience">Experience</a>
                 <a href="#stack">Stack</a>
                 <a href="#contact">Contact</a>
                 <div class="nav-indicator"></div>
@@ -185,134 +185,94 @@
             <p class="section-intro">Each project represents a complete system &mdash; from raw data ingestion through transformation to analytics-ready output. Click through to explore the source code.</p>
         </div>
 
-        <div class="projects">
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track">
 
-            <!-- Project 1 -->
-            <article class="project" data-accent="stream">
-                <div class="card-glow"></div>
-                <div class="container project-inner">
-                    <div class="project-meta">
-                        <span class="project-number">01</span>
-                        <div class="project-tags">
-                            <span>Kafka</span><span>Spark</span><span>Airflow</span><span>Cassandra</span><span>Docker</span>
-                        </div>
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="card-glow"></div>
+                    <span class="project-number">01</span>
+                    <h3 class="project-name" data-scramble>Real-Time Data Streaming Pipeline</h3>
+                    <p class="project-desc">End-to-end real-time pipeline with a 7-layer architecture: API ingestion, Airflow orchestration, Kafka messaging, Spark stream processing, and Cassandra storage.</p>
+                    <div class="project-tags">
+                        <span>Kafka</span><span>Spark</span><span>Airflow</span><span>Cassandra</span><span>Docker</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-name" data-scramble>Real-Time Data Streaming Pipeline</h3>
-                        <p class="project-desc">End-to-end real-time pipeline with a 7-layer architecture: API ingestion, Airflow orchestration, Kafka messaging, Spark stream processing, and Cassandra storage. Designed for fault tolerance and horizontal scaling.</p>
-                        <ul class="project-outcomes">
-                            <li>Scalable distributed processing with Spark workers</li>
-                            <li>Fault-tolerant coordination via ZooKeeper</li>
-                            <li>Schema evolution through Confluent Schema Registry</li>
-                        </ul>
-                        <a href="https://github.com/amanimulira/realtime-data-streaming" target="_blank" rel="noopener" class="project-link">
-                            View on GitHub
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                    <a href="https://github.com/amanimulira/realtime-data-streaming" target="_blank" rel="noopener" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </article>
 
-            <!-- Project 2 -->
-            <article class="project" data-accent="elt">
-                <div class="card-glow"></div>
-                <div class="container project-inner">
-                    <div class="project-meta">
-                        <span class="project-number">02</span>
-                        <div class="project-tags">
-                            <span>dbt</span><span>Snowflake</span><span>Airflow</span><span>Docker</span><span>Cosmos</span>
-                        </div>
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="card-glow"></div>
+                    <span class="project-number">02</span>
+                    <h3 class="project-name" data-scramble>ELT Pipeline with dbt &amp; Snowflake</h3>
+                    <p class="project-desc">Modern ELT pipeline using dbt for SQL-based transformations and Snowflake as the cloud warehouse. Orchestrated with Airflow via Cosmos, containerised with Docker.</p>
+                    <div class="project-tags">
+                        <span>dbt</span><span>Snowflake</span><span>Airflow</span><span>Docker</span><span>Cosmos</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-name" data-scramble>ELT Pipeline with dbt &amp; Snowflake</h3>
-                        <p class="project-desc">Modern ELT pipeline using dbt for SQL-based transformations and Snowflake as the cloud warehouse. Orchestrated with Airflow via Cosmos, containerised with Docker for reproducible deployments across environments.</p>
-                        <ul class="project-outcomes">
-                            <li>YAML-defined data quality tests at every layer</li>
-                            <li>Staging and marts modelling with dbt best practices</li>
-                        </ul>
-                        <a href="https://github.com/amanimulira/ETL-Pipeline" target="_blank" rel="noopener" class="project-link">
-                            View on GitHub
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                    <a href="https://github.com/amanimulira/ETL-Pipeline" target="_blank" rel="noopener" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </article>
 
-            <!-- Project 3 -->
-            <article class="project" data-accent="warehouse">
-                <div class="card-glow"></div>
-                <div class="container project-inner">
-                    <div class="project-meta">
-                        <span class="project-number">03</span>
-                        <div class="project-tags">
-                            <span>T-SQL</span><span>SQL Server</span><span>Star Schema</span><span>Stored Procedures</span>
-                        </div>
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="card-glow"></div>
+                    <span class="project-number">03</span>
+                    <h3 class="project-name" data-scramble>SQL Data Warehouse &mdash; Medallion Architecture</h3>
+                    <p class="project-desc">Complete data warehouse on SQL Server with bronze/silver/gold layering. Includes ETL stored procedures, data quality validation, and star schema dimensional modelling.</p>
+                    <div class="project-tags">
+                        <span>T-SQL</span><span>SQL Server</span><span>Star Schema</span><span>Stored Procedures</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-name" data-scramble>SQL Data Warehouse &mdash; Medallion Architecture</h3>
-                        <p class="project-desc">Complete data warehouse on SQL Server with bronze/silver/gold layering. Includes ETL stored procedures, data quality validation with window functions, and star schema dimensional modelling ready for Power BI and Tableau.</p>
-                        <ul class="project-outcomes">
-                            <li>Three-layer medallion architecture (Bronze &rarr; Silver &rarr; Gold)</li>
-                            <li>Star schema with surrogate keys for analytics</li>
-                        </ul>
-                        <a href="https://github.com/amanimulira/sql-data-warehouse-project" target="_blank" rel="noopener" class="project-link">
-                            View on GitHub
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                    <a href="https://github.com/amanimulira/sql-data-warehouse-project" target="_blank" rel="noopener" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </article>
 
-            <!-- Project 4 -->
-            <article class="project" data-accent="automation">
-                <div class="card-glow"></div>
-                <div class="container project-inner">
-                    <div class="project-meta">
-                        <span class="project-number">04</span>
-                        <div class="project-tags">
-                            <span>Python</span><span>Airflow</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span>
-                        </div>
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <div class="card-glow"></div>
+                    <span class="project-number">04</span>
+                    <h3 class="project-name" data-scramble>Automated ETL Platform</h3>
+                    <p class="project-desc">Production-grade ETL platform with multi-source ingestion from PostgreSQL, SQL Server, CSV, and blob storage. Infrastructure-as-code with Terraform and CI/CD via GitHub Actions.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>Airflow</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-name" data-scramble>Automated ETL Platform</h3>
-                        <p class="project-desc">Production-grade ETL platform with multi-source ingestion from PostgreSQL, SQL Server, CSV, and blob storage. Infrastructure-as-code with Terraform, Kubernetes deployment manifests, and CI/CD via GitHub Actions.</p>
-                        <ul class="project-outcomes">
-                            <li>Full CI/CD pipeline with GitHub Actions</li>
-                            <li>Terraform IaC for reproducible infrastructure</li>
-                        </ul>
-                        <a href="https://github.com/amanimulira/data_etl_automation" target="_blank" rel="noopener" class="project-link">
-                            View on GitHub
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                    <a href="https://github.com/amanimulira/data_etl_automation" target="_blank" rel="noopener" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </article>
 
-            <!-- Project 5 -->
-            <article class="project" data-accent="ai">
-                <div class="card-glow"></div>
-                <div class="container project-inner">
-                    <div class="project-meta">
-                        <span class="project-number">05</span>
-                        <div class="project-tags">
-                            <span>Python</span><span>Streamlit</span><span>Prophet</span><span>OpenAI</span><span>Plotly</span>
-                        </div>
+                <!-- Project 5 -->
+                <article class="project-card">
+                    <div class="card-glow"></div>
+                    <span class="project-number">05</span>
+                    <h3 class="project-name" data-scramble>AI-Powered BI Dashboard</h3>
+                    <p class="project-desc">Intelligent business analytics platform that pairs data pipelines with ML-driven insights. Features Prophet forecasting, OpenAI summaries, and interactive Streamlit visualisations.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>Streamlit</span><span>Prophet</span><span>OpenAI</span><span>Plotly</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-name" data-scramble>AI-Powered BI Dashboard</h3>
-                        <p class="project-desc">Intelligent business analytics platform that pairs data pipelines with ML-driven insights. Features Prophet time-series forecasting, OpenAI-powered natural language summaries, and interactive Streamlit visualisations with scenario simulation.</p>
-                        <ul class="project-outcomes">
-                            <li>Predictive modelling with Facebook Prophet</li>
-                            <li>Natural language query interface via OpenAI</li>
-                        </ul>
-                        <a href="https://github.com/amanimulira/SBID_Project" target="_blank" rel="noopener" class="project-link">
-                            View on GitHub
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                    <a href="https://github.com/amanimulira/SBID_Project" target="_blank" rel="noopener" class="project-link">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </article>
 
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Previous project">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="carousel-dots" id="carousel-dots"></div>
+                <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next project">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
         </div>
 
         <div class="container">
@@ -333,37 +293,52 @@
     <!-- Gradient Accent -->
     <div class="gradient-accent"></div>
 
-    <!-- Approach -->
-    <section class="section section-dark" id="approach" style="position: relative; overflow: hidden;">
-        <!-- Decorative ring -->
+    <!-- Experience -->
+    <section class="section section-dark" id="experience" style="position: relative; overflow: hidden;">
         <div class="deco deco-ring" style="right: 80px; top: 60px;" data-parallax-deco="0.06"></div>
         <div class="deco deco-cross" style="left: 50px; bottom: 80px;" data-parallax-deco="-0.04">+</div>
 
         <div class="container">
-            <div class="section-label light">Approach</div>
-            <h2 class="section-title light">How I deliver <em>reliable</em><br>data systems.</h2>
+            <div class="section-label light">Experience</div>
+            <h2 class="section-title light">Real world <em>experience.</em></h2>
 
-            <div class="approach-grid">
-                <div class="approach-step" data-tilt data-tilt-intensity="8">
-                    <div class="approach-num">01</div>
-                    <h3>Understand</h3>
-                    <p>I start with the business question. Who uses the data, what decisions does it support, and what does &ldquo;correct&rdquo; look like? The architecture follows from the answers.</p>
+            <div class="experience-timeline">
+                <div class="experience-card" data-tilt data-tilt-intensity="6">
+                    <div class="card-glow"></div>
+                    <div class="experience-header">
+                        <div class="experience-company-logo">
+                            <span>W</span>
+                        </div>
+                        <div class="experience-meta">
+                            <h3 class="experience-role">Data Engineer</h3>
+                            <div class="experience-company">Wates Group</div>
+                        </div>
+                        <div class="experience-date">
+                            <span class="experience-badge">Current</span>
+                            Sep 2025 &mdash; Present
+                        </div>
+                    </div>
+                    <div class="experience-details">
+                        <p>Building and maintaining data infrastructure for one of the UK&rsquo;s leading construction and property services companies. Designing pipelines, dashboards, and analytics platforms that support business-critical decision making across the group.</p>
+                        <div class="experience-tags">
+                            <span>Power BI</span>
+                            <span>Excel</span>
+                            <span>SQL</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                    <div class="experience-location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Greater London, UK &middot; Hybrid
+                    </div>
                 </div>
-                <div class="approach-step" data-tilt data-tilt-intensity="8">
-                    <div class="approach-num">02</div>
-                    <h3>Design</h3>
-                    <p>I model the data, choose the right tools for the problem, and plan the pipeline end-to-end before writing code. No over-engineering, no under-engineering.</p>
-                </div>
-                <div class="approach-step" data-tilt data-tilt-intensity="8">
-                    <div class="approach-num">03</div>
-                    <h3>Build &amp; Test</h3>
-                    <p>I build iteratively with data quality tests at every stage. Schema validation, row counts, referential integrity &mdash; failures surface immediately, not three months later.</p>
-                </div>
-                <div class="approach-step" data-tilt data-tilt-intensity="8">
-                    <div class="approach-num">04</div>
-                    <h3>Ship &amp; Document</h3>
-                    <p>I containerise, automate, and document everything. Your team inherits a system they can maintain, extend, and trust long after the engagement ends.</p>
-                </div>
+            </div>
+
+            <div class="experience-cta">
+                <a href="https://linkedin.com/in/amanimulira" target="_blank" rel="noopener" class="btn-outline-light" data-magnetic>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    View full profile on LinkedIn
+                </a>
             </div>
         </div>
     </section>
@@ -373,48 +348,6 @@
         <div class="divider-line"></div>
         <div class="divider-diamond"></div>
     </div>
-
-    <!-- Services -->
-    <section class="section" id="services" style="position: relative; overflow: hidden;">
-        <div class="deco deco-arc" style="left: -80px; bottom: 40px;" data-parallax-deco="0.05"></div>
-        <div class="deco deco-dots-grid" style="right: 30px; bottom: 60px;" data-parallax-deco="-0.03">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-
-        <div class="container">
-            <div class="section-label">Services</div>
-            <h2 class="section-title">What I can <em>build</em> for you.</h2>
-
-            <div class="services-grid">
-                <div class="service-item" data-tilt>
-                    <div class="card-glow"></div>
-                    <h3>ETL / ELT Pipelines</h3>
-                    <p>Automated data pipelines that extract from any source, transform with business logic, and load into your warehouse. Batch or real-time.</p>
-                    <span class="service-tools">dbt, Airflow, Spark, Kafka</span>
-                </div>
-                <div class="service-item" data-tilt>
-                    <div class="card-glow"></div>
-                    <h3>Data Warehouse Design</h3>
-                    <p>Dimensional models with medallion layering. Star schemas, slowly changing dimensions, and views purpose-built for your BI tools.</p>
-                    <span class="service-tools">Snowflake, SQL Server, PostgreSQL</span>
-                </div>
-                <div class="service-item" data-tilt>
-                    <div class="card-glow"></div>
-                    <h3>Real-Time Streaming</h3>
-                    <p>Event-driven architectures for real-time analytics and operational intelligence. Designed for scale and fault tolerance from day one.</p>
-                    <span class="service-tools">Kafka, Spark Streaming, Cassandra</span>
-                </div>
-                <div class="service-item" data-tilt>
-                    <div class="card-glow"></div>
-                    <h3>Infrastructure &amp; DevOps</h3>
-                    <p>Containerised deployments, CI/CD for data, infrastructure-as-code, and monitoring. Production-grade from the first commit.</p>
-                    <span class="service-tools">Docker, Terraform, Kubernetes, GitHub Actions</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Tech Stack -->
     <section class="section section-cream" id="stack">
