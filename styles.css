@@ -1597,6 +1597,66 @@ body:not(.is-mobile) .cursor-ring {
 
 
 /* ============================================================
+   LinkedIn Social Proof
+   ============================================================ */
+.linkedin-scroll-wrapper {
+    margin-top: var(--s7);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+    padding: 0 var(--s6) var(--s5);
+    cursor: grab;
+}
+
+.linkedin-scroll-wrapper:active {
+    cursor: grabbing;
+}
+
+.linkedin-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+
+.linkedin-scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.linkedin-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 2px;
+    opacity: 0.4;
+}
+
+.linkedin-scroll-track {
+    display: flex;
+    gap: var(--s5);
+    width: max-content;
+    padding: var(--s3) var(--s3) var(--s4);
+}
+
+.linkedin-post-card {
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.linkedin-post-card:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.linkedin-post-card iframe {
+    display: block;
+}
+
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 900px) {
