@@ -661,6 +661,25 @@ document.addEventListener('DOMContentLoaded', () => {
     new ScrollReveal();
     new Carousel();
 
+    // Drag-to-scroll LinkedIn feed
+    const linkedinWrapper = document.querySelector('.linkedin-scroll-wrapper');
+    if (linkedinWrapper) {
+        let isDown = false, startX, scrollLeft;
+        linkedinWrapper.addEventListener('mousedown', e => {
+            isDown = true;
+            startX = e.pageX - linkedinWrapper.offsetLeft;
+            scrollLeft = linkedinWrapper.scrollLeft;
+        });
+        linkedinWrapper.addEventListener('mouseleave', () => { isDown = false; });
+        linkedinWrapper.addEventListener('mouseup', () => { isDown = false; });
+        linkedinWrapper.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - linkedinWrapper.offsetLeft;
+            linkedinWrapper.scrollLeft = scrollLeft - (x - startX);
+        });
+    }
+
     // Mark mobile
     if (isMobile()) document.body.classList.add('is-mobile');
     window.addEventListener('resize', () => {
