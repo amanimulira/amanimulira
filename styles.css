@@ -1653,6 +1653,7 @@ body:not(.is-mobile) .cursor-ring {
 
 .linkedin-post-card iframe {
     display: block;
+    flex-shrink: 0;
 }
 
 
@@ -1751,6 +1752,26 @@ body:not(.is-mobile) .cursor-ring {
     }
 
     .section { padding: var(--s8) 0; }
+
+    /* LinkedIn posts — scale iframes to fit mobile cards */
+    .linkedin-scroll-wrapper {
+        padding: 0 var(--s4) var(--s4);
+    }
+
+    .linkedin-scroll-track {
+        gap: var(--s4);
+    }
+
+    .linkedin-post-card {
+        width: 300px;
+        height: 373px;
+        overflow: hidden;
+    }
+
+    .linkedin-post-card iframe {
+        transform: scale(0.595);
+        transform-origin: top left;
+    }
 
     /* Hide custom cursor on mobile */
     .cursor-dot,
