@@ -25,7 +25,7 @@ A few opinions that show up in everything I build:
 
 ## Selected work
 
-- **[Modern D2C Data Stack](https://github.com/amanimulira/modern-d2c-data-stack)** — Production-grade dbt reference for D2C brands modelling Shopify, Klaviyo, Meta Ads, and GA4. Opinionated, fully tested, documented end-to-end.
+- **[Modern D2C Data Stack](https://github.com/amanimulira/d2c-data-stack)** — Production-grade dbt reference for D2C brands modelling Shopify, Klaviyo, Meta Ads, and GA4. Opinionated, fully tested, documented end-to-end.
 - **[ETL Pipeline](https://github.com/amanimulira/ETL-Pipeline)** — dbt + Snowflake pipeline orchestrated with Airflow, containerised with Docker.
 - **[SQL Data Warehouse](https://github.com/amanimulira/sql-data-warehouse-project)** — A warehouse built from scratch in SQL Server: ETL, dimensional modelling, analytics layer on top.
 
