@@ -1,689 +1,300 @@
-// ============================================================
-// Amani Mulira — Interactive Experience
-// ============================================================
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const lerp = (a, b, t) => a + (b - a) * t;
-const isMobile = () => window.innerWidth <= 768;
-
-// ============================================================
-// Loader
-// ============================================================
-class Loader {
+class Navigation {
     constructor() {
-        this.el = document.getElementById('loader');
-        if (!this.el) return;
-        document.body.classList.add('loading');
-        window.addEventListener('load', () => this.dismiss());
-        setTimeout(() => this.dismiss(), 2500);
-    }
+        this.nav = document.querySelector(".nav");
+        this.toggle = document.querySelector(".nav-toggle");
+        this.links = document.querySelector(".nav-links");
 
-    dismiss() {
-        if (this.dismissed) return;
-        this.dismissed = true;
-        setTimeout(() => {
-            this.el.classList.add('done');
-            document.body.classList.remove('loading');
-            heroAnimation.start();
-        }, 400);
-    }
-}
+        if (!this.nav || !this.toggle || !this.links) return;
 
-// ============================================================
-// Custom Cursor
-// ============================================================
-class Cursor {
-    constructor() {
-        if (isMobile()) return;
-
-        this.dot = document.createElement('div');
-        this.dot.className = 'cursor-dot';
-        this.ring = document.createElement('div');
-        this.ring.className = 'cursor-ring';
-        document.body.appendChild(this.dot);
-        document.body.appendChild(this.ring);
-
-        this.pos = { x: -100, y: -100 };
-        this.target = { x: -100, y: -100 };
-        this.ringPos = { x: -100, y: -100 };
-        this.visible = false;
-
-        document.addEventListener('mousemove', (e) => {
-            this.target.x = e.clientX;
-            this.target.y = e.clientY;
-            if (!this.visible) {
-                this.visible = true;
-                this.pos.x = e.clientX;
-                this.pos.y = e.clientY;
-                this.ringPos.x = e.clientX;
-                this.ringPos.y = e.clientY;
-            }
+        this.toggle.addEventListener("click", () => this.setOpen(!this.links.classList.contains("open")));
+        this.links.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => this.setOpen(false));
         });
 
-        document.addEventListener('mousedown', () => this.ring.classList.add('click'));
-        document.addEventListener('mouseup', () => this.ring.classList.remove('click'));
-
-        // Hover detection
-        const hoverEls = 'a, button, [data-magnetic], .project-link, .btn-primary, .btn-ghost, .contact-card, .service-item, .nav-links a';
-        document.querySelectorAll(hoverEls).forEach(el => {
-            el.addEventListener('mouseenter', () => this.ring.classList.add('hover'));
-            el.addEventListener('mouseleave', () => this.ring.classList.remove('hover'));
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") this.setOpen(false);
         });
 
-        this.render();
+        window.addEventListener("scroll", () => this.onScroll(), { passive: true });
+        this.onScroll();
     }
 
-    render() {
-        this.pos.x = lerp(this.pos.x, this.target.x, 0.9);
-        this.pos.y = lerp(this.pos.y, this.target.y, 0.9);
-        this.ringPos.x = lerp(this.ringPos.x, this.target.x, 0.15);
-        this.ringPos.y = lerp(this.ringPos.y, this.target.y, 0.15);
-
-        this.dot.style.left = this.pos.x + 'px';
-        this.dot.style.top = this.pos.y + 'px';
-        this.ring.style.left = this.ringPos.x + 'px';
-        this.ring.style.top = this.ringPos.y + 'px';
-
-        requestAnimationFrame(() => this.render());
-    }
-}
-
-// ============================================================
-// Hero Animation
-// ============================================================
-class HeroAnimation {
-    constructor() {
-        this.nameWrap = document.querySelector('.hero-name-wrap');
-        this.fadeEls = document.querySelectorAll('.hero-fade-el');
-    }
-
-    start() {
-        // Name marquee scales in
-        setTimeout(() => {
-            if (this.nameWrap) this.nameWrap.classList.add('visible');
-        }, 200);
-
-        // Stagger fade-in elements
-        this.fadeEls.forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), 500 + i * 150);
-        });
-    }
-}
-
-// ============================================================
-// Particle Network (Hero Background)
-// ============================================================
-class ParticleNetwork {
-    constructor(canvas) {
-        if (!canvas || isMobile()) return;
-        this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
-        this.particles = [];
-        this.mouse = { x: null, y: null };
-        this.animating = true;
-
-        this.resize();
-        this.create();
-        this.animate();
-
-        window.addEventListener('resize', () => this.resize());
-        this.canvas.parentElement.addEventListener('mousemove', (e) => {
-            const rect = this.canvas.getBoundingClientRect();
-            this.mouse.x = e.clientX - rect.left;
-            this.mouse.y = e.clientY - rect.top;
-        });
-
-        this.canvas.parentElement.addEventListener('mouseleave', () => {
-            this.mouse.x = null;
-            this.mouse.y = null;
-        });
-    }
-
-    resize() {
-        const rect = this.canvas.parentElement.getBoundingClientRect();
-        this.canvas.width = rect.width;
-        this.canvas.height = rect.height;
-        this.create();
-    }
-
-    create() {
-        const area = this.canvas.width * this.canvas.height;
-        const count = Math.min(Math.floor(area / 18000), 80);
-        this.particles = [];
-        for (let i = 0; i < count; i++) {
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * 0.25,
-                vy: (Math.random() - 0.5) * 0.15 + 0.1,
-                radius: Math.random() * 1.8 + 0.5,
-                opacity: Math.random() * 0.4 + 0.2
-            });
-        }
-    }
-
-    animate() {
-        if (!this.animating) return;
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        this.particles.forEach(p => {
-            p.x += p.vx;
-            p.y += p.vy;
-
-            // Mouse repulsion
-            if (this.mouse.x !== null) {
-                const dx = p.x - this.mouse.x;
-                const dy = p.y - this.mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
-                    const force = (120 - dist) / 120 * 0.8;
-                    p.x += (dx / dist) * force;
-                    p.y += (dy / dist) * force;
-                }
-            }
-
-            // Wrap around
-            if (p.x < -10) p.x = this.canvas.width + 10;
-            if (p.x > this.canvas.width + 10) p.x = -10;
-            if (p.y < -10) p.y = this.canvas.height + 10;
-            if (p.y > this.canvas.height + 10) p.y = -10;
-
-            // Draw particle
-            this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(193, 165, 85, ${p.opacity})`;
-            this.ctx.fill();
-        });
-
-        // Draw connections
-        const maxDist = 100;
-        for (let i = 0; i < this.particles.length; i++) {
-            for (let j = i + 1; j < this.particles.length; j++) {
-                const a = this.particles[i];
-                const b = this.particles[j];
-                const dx = a.x - b.x;
-                const dy = a.y - b.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < maxDist) {
-                    const alpha = 0.08 * (1 - dist / maxDist);
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(a.x, a.y);
-                    this.ctx.lineTo(b.x, b.y);
-                    this.ctx.strokeStyle = `rgba(193, 165, 85, ${alpha})`;
-                    this.ctx.lineWidth = 0.5;
-                    this.ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
-// ============================================================
-// Magnetic Buttons
-// ============================================================
-class MagneticButton {
-    constructor(el) {
-        if (isMobile()) return;
-        this.el = el;
-        this.strength = 0.3;
-
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = e.clientX - cx;
-            const dy = e.clientY - cy;
-
-            el.style.transform = `translate(${dx * this.strength}px, ${dy * this.strength}px)`;
-        });
-
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = '';
-            el.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            setTimeout(() => { el.style.transition = ''; }, 400);
-        });
-    }
-}
-
-// ============================================================
-// 3D Tilt Effect
-// ============================================================
-class TiltEffect {
-    constructor(el) {
-        if (isMobile()) return;
-        this.el = el;
-        this.intensity = parseInt(el.dataset.tiltIntensity) || 12;
-
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-
-            const rotateY = (x - 0.5) * this.intensity;
-            const rotateX = (0.5 - y) * this.intensity;
-
-            el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = '';
-            el.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-            setTimeout(() => { el.style.transition = ''; }, 600);
-        });
-    }
-}
-
-// ============================================================
-// Card Glow (follows mouse)
-// ============================================================
-class CardGlow {
-    constructor() {
-        if (isMobile()) return;
-        document.querySelectorAll('.card-glow').forEach(glow => {
-            const parent = glow.parentElement;
-            parent.addEventListener('mousemove', (e) => {
-                const rect = parent.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                glow.style.setProperty('--glow-x', x + 'px');
-                glow.style.setProperty('--glow-y', y + 'px');
-            });
-        });
-    }
-}
-
-// ============================================================
-// Text Scramble Effect
-// ============================================================
-class TextScramble {
-    constructor() {
-        if (isMobile()) return;
-        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
-
-        document.querySelectorAll('[data-scramble]').forEach(el => {
-            const original = el.textContent;
-            el.addEventListener('mouseenter', () => this.scramble(el, original));
-        });
-    }
-
-    scramble(el, text) {
-        if (el._scrambling) return;
-        el._scrambling = true;
-        let iteration = 0;
-        const maxIterations = text.length;
-
-        const interval = setInterval(() => {
-            el.textContent = text
-                .split('')
-                .map((char, i) => {
-                    if (char === ' ' || char === '—' || char === '&') return char;
-                    if (i < iteration) return text[i];
-                    return this.chars[Math.floor(Math.random() * this.chars.length)];
-                })
-                .join('');
-
-            iteration += 1.2;
-
-            if (iteration >= maxIterations) {
-                clearInterval(interval);
-                el.textContent = text;
-                el._scrambling = false;
-            }
-        }, 30);
-    }
-}
-
-// ============================================================
-// Scroll Progress Bar
-// ============================================================
-class ScrollProgress {
-    constructor() {
-        this.el = document.getElementById('scroll-progress');
-        if (!this.el) return;
-
-        window.addEventListener('scroll', () => this.update(), { passive: true });
-    }
-
-    update() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        this.el.style.width = progress + '%';
-    }
-}
-
-// ============================================================
-// Active Nav Section Tracking
-// ============================================================
-class ActiveNav {
-    constructor() {
-        this.links = document.querySelectorAll('.nav-links a[href^="#"]');
-        this.sections = [];
-
-        this.links.forEach(link => {
-            const id = link.getAttribute('href').slice(1);
-            const section = document.getElementById(id);
-            if (section) this.sections.push({ link, section });
-        });
-
-        window.addEventListener('scroll', () => this.update(), { passive: true });
-        this.update();
-    }
-
-    update() {
-        const scrollPos = window.scrollY + 150;
-
-        let current = null;
-        this.sections.forEach(({ link, section }) => {
-            const top = section.offsetTop;
-            const bottom = top + section.offsetHeight;
-            if (scrollPos >= top && scrollPos < bottom) {
-                current = link;
-            }
-        });
-
-        this.links.forEach(link => link.classList.remove('active'));
-        if (current) current.classList.add('active');
-    }
-}
-
-// ============================================================
-// Nav Hide/Show on Scroll
-// ============================================================
-class NavScroll {
-    constructor() {
-        this.nav = document.getElementById('nav');
-        this.lastScroll = 0;
-        this.threshold = 80;
-
-        window.addEventListener('scroll', () => this.update(), { passive: true });
-    }
-
-    update() {
-        const scrollY = window.scrollY;
-        if (scrollY > this.threshold && scrollY > this.lastScroll) {
-            this.nav.classList.add('hidden');
-        } else {
-            this.nav.classList.remove('hidden');
-        }
-        this.lastScroll = scrollY;
-    }
-}
-
-// ============================================================
-// Noise Overlay (generated canvas texture)
-// ============================================================
-class NoiseOverlay {
-    constructor() {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = 256;
-        canvas.height = 256;
-
-        const imageData = ctx.createImageData(256, 256);
-        const data = imageData.data;
-        for (let i = 0; i < data.length; i += 4) {
-            const v = Math.random() * 255;
-            data[i] = v;
-            data[i + 1] = v;
-            data[i + 2] = v;
-            data[i + 3] = 255;
-        }
-        ctx.putImageData(imageData, 0, 0);
-
-        const overlay = document.createElement('div');
-        overlay.className = 'noise-overlay';
-        overlay.style.backgroundImage = `url(${canvas.toDataURL()})`;
-        overlay.style.backgroundRepeat = 'repeat';
-        document.body.appendChild(overlay);
-    }
-}
-
-// ============================================================
-// Enhanced Scroll Reveal
-// ============================================================
-class Carousel {
-    constructor() {
-        this.track = document.getElementById('carousel-track');
-        this.prevBtn = document.getElementById('carousel-prev');
-        this.nextBtn = document.getElementById('carousel-next');
-        this.dotsWrap = document.getElementById('carousel-dots');
-        if (!this.track) return;
-
-        this.cards = [...this.track.querySelectorAll('.project-card')];
-        this.current = 0;
-
-        this.buildDots();
-        this.prevBtn.addEventListener('click', () => this.go(this.current - 1));
-        this.nextBtn.addEventListener('click', () => this.go(this.current + 1));
-        this.track.addEventListener('scroll', () => this.onScroll(), { passive: true });
-    }
-
-    buildDots() {
-        this.cards.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', `Go to project ${i + 1}`);
-            dot.addEventListener('click', () => this.go(i));
-            this.dotsWrap.appendChild(dot);
-        });
-        this.dots = [...this.dotsWrap.querySelectorAll('.carousel-dot')];
-    }
-
-    go(index) {
-        const i = Math.max(0, Math.min(index, this.cards.length - 1));
-        this.cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    setOpen(open) {
+        this.links.classList.toggle("open", open);
+        this.toggle.setAttribute("aria-expanded", String(open));
+        document.body.classList.toggle("menu-open", open);
     }
 
     onScroll() {
-        const trackLeft = this.track.scrollLeft;
-        let closest = 0;
-        let minDist = Infinity;
-        this.cards.forEach((card, i) => {
-            const dist = Math.abs(card.offsetLeft - trackLeft - parseInt(getComputedStyle(this.track).paddingLeft));
-            if (dist < minDist) { minDist = dist; closest = i; }
-        });
-        if (closest !== this.current) {
-            this.current = closest;
-            this.dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+        this.nav.classList.toggle("scrolled", window.scrollY > 24);
+    }
+}
+
+class SignalChart {
+    constructor(canvas) {
+        if (!canvas) return;
+        this.canvas = canvas;
+        this.context = canvas.getContext("2d");
+        this.phase = 0;
+        this.frame = null;
+        this.resizeObserver = new ResizeObserver(() => this.resize());
+        this.resizeObserver.observe(canvas.parentElement);
+        this.resize();
+    }
+
+    resize() {
+        const rect = this.canvas.getBoundingClientRect();
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = Math.max(1, Math.round(rect.width * ratio));
+        this.canvas.height = Math.max(1, Math.round(rect.height * ratio));
+        this.context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        this.width = rect.width;
+        this.height = rect.height;
+
+        if (reduceMotion) {
+            this.draw();
+        } else if (!this.frame) {
+            this.animate();
         }
     }
-}
 
-class ScrollReveal {
-    constructor() {
-        // Standard reveals for labels and intros
-        document.querySelectorAll('.section-label, .section-intro').forEach(el => el.classList.add('reveal'));
-        document.querySelectorAll('.contact-text').forEach(el => el.classList.add('reveal'));
+    points() {
+        const base = [
+            [0.02, 0.86],
+            [0.11, 0.8],
+            [0.2, 0.72],
+            [0.3, 0.66],
+            [0.4, 0.53],
+            [0.49, 0.58],
+            [0.58, 0.43],
+            [0.68, 0.34],
+            [0.78, 0.39],
+            [0.9, 0.2],
+            [0.98, 0.15]
+        ];
 
-        // Alternate section titles: some from left, some from right
-        const titles = document.querySelectorAll('.section-title');
-        titles.forEach((el, i) => {
-            el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        return base.map(([x, y], index) => [
+            x * this.width,
+            y * this.height + Math.sin(this.phase + index * 0.8) * (reduceMotion ? 0 : 3)
+        ]);
+    }
+
+    draw() {
+        const ctx = this.context;
+        const points = this.points();
+        ctx.clearRect(0, 0, this.width, this.height);
+
+        const fill = ctx.createLinearGradient(0, 0, 0, this.height);
+        fill.addColorStop(0, "rgba(214, 255, 103, 0.25)");
+        fill.addColorStop(1, "rgba(214, 255, 103, 0)");
+
+        ctx.beginPath();
+        ctx.moveTo(points[0][0], this.height);
+        points.forEach(([x, y]) => ctx.lineTo(x, y));
+        ctx.lineTo(points[points.length - 1][0], this.height);
+        ctx.closePath();
+        ctx.fillStyle = fill;
+        ctx.fill();
+
+        ctx.beginPath();
+        points.forEach(([x, y], index) => {
+            if (index === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
         });
+        ctx.strokeStyle = "#d6ff67";
+        ctx.lineWidth = 2;
+        ctx.shadowBlur = 16;
+        ctx.shadowColor = "rgba(214, 255, 103, 0.45)";
+        ctx.stroke();
+        ctx.shadowBlur = 0;
 
-        // Carousel cards reveal
-        document.querySelectorAll('.project-card').forEach(el => {
-            el.classList.add('reveal-scale');
+        points.forEach(([x, y], index) => {
+            if (![2, 4, 6, 8, 10].includes(index)) return;
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = index === 10 ? "#88aef5" : "#d6ff67";
+            ctx.fill();
         });
+    }
 
-        // Scale reveals for service items
-        document.querySelectorAll('.service-item').forEach((el, i) => {
-            el.classList.add(i % 2 === 0 ? 'reveal-scale' : 'reveal-right');
-        });
-
-        // Alternate contact cards from right
-        document.querySelectorAll('.contact-card').forEach((el, i) => {
-            el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
-        });
-
-        // Section dividers
-        document.querySelectorAll('.section-divider').forEach(el => el.classList.add('reveal'));
-
-        // Decorative elements
-        document.querySelectorAll('.deco').forEach(el => el.classList.add('reveal'));
-
-        // Stagger groups
-        document.querySelectorAll('.experience-card').forEach(el => el.classList.add('reveal'));
-
-        const stackColumns = document.querySelector('.stack-columns');
-        if (stackColumns) stackColumns.classList.add('reveal-stagger');
-
-        // Observe all
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
-        );
-
-        document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
-            observer.observe(el);
-        });
+    animate() {
+        this.phase += 0.012;
+        this.draw();
+        this.frame = requestAnimationFrame(() => this.animate());
     }
 }
 
-// ============================================================
-// Smooth Parallax (orb + decorative elements + horizontal text)
-// ============================================================
-class Parallax {
+class Reveal {
     constructor() {
-        if (isMobile()) return;
-        this.decos = document.querySelectorAll('[data-parallax-deco]');
-        this.scrollText = document.querySelector('[data-scroll-speed]');
-        window.addEventListener('scroll', () => this.update(), { passive: true });
-    }
+        const groups = [
+            ".section-heading",
+            ".approach-card",
+            ".case-copy",
+            ".case-visual",
+            ".social-proof-intro",
+            ".linkedin-feed",
+            ".social-profile-link",
+            ".experience-aside",
+            ".role",
+            ".about-copy",
+            ".capability-board",
+            ".contact > *:not(.contact-orbit)"
+        ];
 
-    update() {
-        const scrollY = window.scrollY;
+        this.elements = document.querySelectorAll(groups.join(","));
+        this.elements.forEach((element) => element.setAttribute("data-reveal", ""));
 
-        // Decorative elements parallax
-        this.decos.forEach(el => {
-            const speed = parseFloat(el.dataset.parallaxDeco) || 0;
-            const rect = el.closest('.section, section')?.getBoundingClientRect();
-            if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
-                const offset = (scrollY - el.closest('.section, section').offsetTop) * speed;
-                el.style.transform = `translateY(${offset}px)`;
-            }
-        });
-
-        // Horizontal scroll text — offset relative to its own section position
-        if (this.scrollText) {
-            const parent = this.scrollText.closest('.horizontal-scroll-text');
-            if (parent) {
-                const rect = parent.getBoundingClientRect();
-                const progress = -rect.top / window.innerHeight;
-                const offset = progress * 200;
-                this.scrollText.style.transform = `translateX(${50 - offset}px)`;
-            }
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+            this.elements.forEach((element) => element.classList.add("visible"));
+            return;
         }
-    }
-}
 
-// ============================================================
-// Mobile Nav
-// ============================================================
-class MobileNav {
-    constructor() {
-        this.toggle = document.getElementById('nav-toggle');
-        this.links = document.getElementById('nav-links');
-
-        this.toggle.addEventListener('click', () => {
-            this.toggle.classList.toggle('active');
-            this.links.classList.toggle('open');
-        });
-
-        this.links.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                this.toggle.classList.remove('active');
-                this.links.classList.remove('open');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
             });
+        }, {
+            threshold: 0.08,
+            rootMargin: "0px 0px -7% 0px"
         });
+
+        this.elements.forEach((element) => observer.observe(element));
     }
 }
 
-// ============================================================
-// Smooth Scroll
-// ============================================================
-class SmoothScroll {
-    constructor() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) {
-                    const y = target.getBoundingClientRect().top + window.scrollY - 72;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
+class SocialFeed {
+    constructor(feed) {
+        if (!feed) return;
+        this.feed = feed;
+        this.cards = [...feed.querySelectorAll(".linkedin-post")];
+        this.previous = document.getElementById("feed-prev");
+        this.next = document.getElementById("feed-next");
+        this.index = document.getElementById("feed-index");
+        this.current = 0;
+        this.scrollFrame = null;
+
+        this.previous?.addEventListener("click", () => this.go(this.current - 1));
+        this.next?.addEventListener("click", () => this.go(this.current + 1));
+        this.feed.addEventListener("scroll", () => this.onScroll(), { passive: true });
+        this.feed.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                this.go(this.current - 1);
+            }
+            if (event.key === "ArrowRight") {
+                event.preventDefault();
+                this.go(this.current + 1);
+            }
+        });
+    }
+
+    go(index) {
+        const target = Math.max(0, Math.min(index, this.cards.length - 1));
+        this.feed.scrollTo({
+            left: this.cards[target].offsetLeft,
+            behavior: reduceMotion ? "auto" : "smooth"
+        });
+        this.setCurrent(target);
+    }
+
+    onScroll() {
+        if (this.scrollFrame) return;
+        this.scrollFrame = requestAnimationFrame(() => {
+            let closest = 0;
+            let distance = Infinity;
+
+            this.cards.forEach((card, index) => {
+                const nextDistance = Math.abs(card.offsetLeft - this.feed.scrollLeft);
+                if (nextDistance < distance) {
+                    closest = index;
+                    distance = nextDistance;
                 }
             });
+
+            this.setCurrent(closest);
+            this.scrollFrame = null;
+        });
+    }
+
+    setCurrent(index) {
+        this.current = index;
+        if (this.index) this.index.textContent = String(index + 1).padStart(2, "0");
+        if (this.previous) this.previous.disabled = index === 0;
+        if (this.next) this.next.disabled = index === this.cards.length - 1;
+    }
+}
+
+class Counter {
+    constructor() {
+        this.items = document.querySelectorAll("[data-count]");
+        if (!this.items.length) return;
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+            this.items.forEach((item) => this.setValue(item, Number(item.dataset.count)));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                this.animate(entry.target);
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.5 });
+
+        this.items.forEach((item) => observer.observe(item));
+    }
+
+    setValue(item, value) {
+        item.textContent = `${Math.round(value)}%`;
+    }
+
+    animate(item) {
+        const target = Number(item.dataset.count);
+        const start = performance.now();
+        const duration = 900;
+
+        const tick = (time) => {
+            const progress = Math.min((time - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            this.setValue(item, target * eased);
+            if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+    }
+}
+
+class SubtleTilt {
+    constructor(element) {
+        if (!element || reduceMotion || window.matchMedia("(pointer: coarse)").matches) return;
+        this.element = element;
+
+        element.addEventListener("pointermove", (event) => {
+            const rect = element.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            element.style.transform = `rotate(${2 + x * 1.2}deg) translateY(${-y * 6}px)`;
+        });
+
+        element.addEventListener("pointerleave", () => {
+            element.style.transform = "";
         });
     }
 }
 
-// ============================================================
-// Initialize Everything
-// ============================================================
-const heroAnimation = new HeroAnimation();
+document.addEventListener("DOMContentLoaded", () => {
+    new Navigation();
+    new SignalChart(document.getElementById("signal-canvas"));
+    new Reveal();
+    new SocialFeed(document.getElementById("linkedin-feed"));
+    new Counter();
+    new SubtleTilt(document.querySelector(".signal-board"));
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Core
-    new Loader();
-    new SmoothScroll();
-    new MobileNav();
-
-    // Cursor & interactions (desktop only)
-    new Cursor();
-    new CardGlow();
-    new TextScramble();
-
-    // Magnetic buttons
-    document.querySelectorAll('[data-magnetic]').forEach(el => new MagneticButton(el));
-
-    // 3D tilt
-    document.querySelectorAll('[data-tilt]').forEach(el => new TiltEffect(el));
-
-    // Visual effects
-    new ParticleNetwork(document.getElementById('hero-canvas'));
-    new NoiseOverlay();
-    new Parallax();
-
-    // Scroll-driven
-    new ScrollProgress();
-    new ActiveNav();
-    new NavScroll();
-    new ScrollReveal();
-    new Carousel();
-
-    // Drag-to-scroll LinkedIn feed
-    const linkedinWrapper = document.querySelector('.linkedin-scroll-wrapper');
-    if (linkedinWrapper) {
-        let isDown = false, startX, scrollLeft;
-        linkedinWrapper.addEventListener('mousedown', e => {
-            isDown = true;
-            startX = e.pageX - linkedinWrapper.offsetLeft;
-            scrollLeft = linkedinWrapper.scrollLeft;
-        });
-        linkedinWrapper.addEventListener('mouseleave', () => { isDown = false; });
-        linkedinWrapper.addEventListener('mouseup', () => { isDown = false; });
-        linkedinWrapper.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - linkedinWrapper.offsetLeft;
-            linkedinWrapper.scrollLeft = scrollLeft - (x - startX);
-        });
-    }
-
-    // Mark mobile
-    if (isMobile()) document.body.classList.add('is-mobile');
-    window.addEventListener('resize', () => {
-        if (isMobile()) document.body.classList.add('is-mobile');
-        else document.body.classList.remove('is-mobile');
-    });
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
 });
