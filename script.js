@@ -5,6 +5,9 @@ class Navigation {
         this.nav = document.querySelector(".nav");
         this.toggle = document.querySelector(".nav-toggle");
         this.links = document.querySelector(".nav-links");
+        this.toggleLabel = this.toggle?.querySelector(".sr-only");
+        this.mobileQuery = window.matchMedia("(max-width: 800px)");
+        this.scrollPosition = 0;
 
         if (!this.nav || !this.toggle || !this.links) return;
 
@@ -18,13 +21,39 @@ class Navigation {
         });
 
         window.addEventListener("scroll", () => this.onScroll(), { passive: true });
+        this.mobileQuery.addEventListener("change", (event) => {
+            if (!event.matches) this.setOpen(false);
+            else this.syncMenuAccess(false);
+        });
+        this.syncMenuAccess(false);
         this.onScroll();
     }
 
     setOpen(open) {
+        const wasOpen = this.links.classList.contains("open");
+
+        if (open && !wasOpen) {
+            this.scrollPosition = window.scrollY;
+            document.body.style.top = `-${this.scrollPosition}px`;
+        }
+
         this.links.classList.toggle("open", open);
         this.toggle.setAttribute("aria-expanded", String(open));
         document.body.classList.toggle("menu-open", open);
+        this.syncMenuAccess(open);
+
+        if (this.toggleLabel) {
+            this.toggleLabel.textContent = open ? "Close menu" : "Open menu";
+        }
+
+        if (!open && wasOpen) {
+            document.body.style.top = "";
+            window.scrollTo(0, this.scrollPosition);
+        }
+    }
+
+    syncMenuAccess(open) {
+        this.links.inert = this.mobileQuery.matches && !open;
     }
 
     onScroll() {
