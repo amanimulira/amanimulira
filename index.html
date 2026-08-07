@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amani Mulira — Data Analyst &amp; Analytics Engineer</title>
-    <meta name="description" content="Amani Mulira is a London-based Finance Data Analyst and analytics engineer building trusted reporting, tested data models and decision-ready data products.">
-    <meta name="keywords" content="Amani Mulira, data analyst, analytics engineer, junior data engineer, SQL, Python, dbt, Databricks, Power BI, London">
-    <meta name="theme-color" content="#101511">
-    <meta property="og:title" content="Amani Mulira — Data products people can trust">
+    <meta name="description" content="Amani Mulira is a London-based Finance Data Analyst and analytics engineer building reliable data products, tested models and decision-ready reporting.">
+    <meta name="theme-color" content="#f0ede4">
+    <meta property="og:title" content="Amani Mulira — Data with consequence">
     <meta property="og:description" content="Commercial impact, tested analytics engineering and evidence-led portfolio work.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://neoanalytica.co.uk">
-    <meta property="og:image" content="https://neoanalytica.co.uk/assets/og.png">
+    <meta property="og:image" content="https://neoanalytica.co.uk/assets/og-modern.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://neoanalytica.co.uk">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,420 +28,241 @@
       "email": "mailto:amanimulira@gmail.com",
       "address": {"@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB"},
       "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Liverpool"},
-      "sameAs": [
-        "https://github.com/amanimulira",
-        "https://www.linkedin.com/in/amanimulira"
-      ],
+      "sameAs": ["https://github.com/amanimulira", "https://www.linkedin.com/in/amanimulira"],
       "knowsAbout": ["SQL", "Python", "dbt", "Databricks", "Power BI", "Data Analytics", "Analytics Engineering"]
     }
     </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-progress" aria-hidden="true"><i id="page-progress-bar"></i></div>
 
     <nav class="nav" aria-label="Primary navigation">
-        <a class="wordmark" href="#top" aria-label="Amani Mulira, home">
-            <span class="wordmark-symbol" aria-hidden="true">
-                <i></i><i></i><i></i><i></i><i></i>
-            </span>
-            <span>Amani Mulira</span>
+        <a class="brand" href="#top" aria-label="Amani Mulira, home">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="brand-copy"><b>Amani Mulira</b><small>Data practice / London</small></span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-            <span></span><span></span>
-            <span class="sr-only">Open menu</span>
-        </button>
         <div class="nav-links" id="nav-links">
-            <a href="#proof">Proof</a>
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#about">About</a>
-            <a class="nav-cta" href="mailto:amanimulira@gmail.com">Let&rsquo;s talk <span aria-hidden="true">↗</span></a>
+            <a href="#work"><span>01</span> Work</a>
+            <a href="#impact"><span>02</span> Impact</a>
+            <a href="#notes"><span>03</span> Notes</a>
+            <a href="#profile"><span>04</span> Profile</a>
+            <a class="nav-contact" href="mailto:amanimulira@gmail.com">Start a conversation ↗</a>
+        </div>
+        <div class="nav-utility">
+            <span class="london-time" id="london-time">London 00:00</span>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span class="toggle-copy">Menu</span>
+                <span class="toggle-lines" aria-hidden="true"><i></i><i></i></span>
+            </button>
         </div>
     </nav>
 
     <main id="main">
         <header class="hero" id="top">
+            <canvas class="field-canvas" id="field-canvas" aria-hidden="true"></canvas>
             <div class="hero-grid" aria-hidden="true"></div>
-            <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-            <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+            <div class="hero-kicker">
+                <span><i class="availability-dot"></i> Open to analytics &amp; data engineering roles</span>
+                <span>Selected work / 2025—26</span>
+            </div>
 
-            <div class="hero-copy">
-                <p class="eyebrow hero-eyebrow">
-                    <span class="status-dot"></span>
-                    Finance Data Analyst · London
-                </p>
-                <h1>I build data products<br>people can <em>trust.</em></h1>
-                <p class="hero-intro">
-                    I turn fragmented financial, operational and customer data into reliable models, automated workflows and decision-ready insight—combining commercial analytics with modern data engineering.
-                </p>
+            <h1 class="hero-title" aria-label="Data with consequence">
+                <span class="title-line title-line-one">DATA</span>
+                <span class="title-line title-line-two">WITH</span>
+                <span class="title-line title-line-three"><em>CONSEQUENCE.</em></span>
+            </h1>
+
+            <div class="hero-footer">
+                <p class="hero-intro">Finance Data Analyst building the reliable layer between raw operational data and the decisions that move a business.</p>
                 <div class="hero-actions">
-                    <a class="button button-light" href="#work">Explore the evidence <span aria-hidden="true">↓</span></a>
-                    <a class="button button-line" href="assets/Amani-Mulira-Analytics-Engineer-CV.pdf" download>Download engineering CV <span aria-hidden="true">↗</span></a>
+                    <a class="action action-solid" href="#work">View selected systems <span>↓</span></a>
+                    <a class="action action-plain" href="assets/Amani-Mulira-Analytics-Engineer-CV.pdf" download>Download CV <span>↗</span></a>
                 </div>
-                <div class="hero-meta">
-                    <span>SQL</span><span>Python</span><span>dbt</span><span>Databricks</span><span>Power BI</span>
-                </div>
+                <dl class="hero-proof" aria-label="Selected impact metrics">
+                    <div><dt>Processing time</dt><dd>−30%</dd></div>
+                    <div><dt>Manual review</dt><dd>−25%</dd></div>
+                    <div><dt>Reporting accuracy</dt><dd>98%</dd></div>
+                </dl>
             </div>
 
-            <div class="signal-board" aria-label="A visual summary of recent impact">
-                <div class="signal-board-top">
-                    <span>impact.signal</span>
-                    <span class="live-label"><i></i> verified</span>
-                </div>
-                <div class="signal-visual">
-                    <canvas id="signal-canvas" aria-hidden="true"></canvas>
-                    <div class="axis-label axis-y">reliability</div>
-                    <div class="axis-label axis-x">delivery →</div>
-                    <div class="signal-marker marker-a"><span>30%</span><small>faster processing</small></div>
-                    <div class="signal-marker marker-b"><span>98%</span><small>reporting accuracy</small></div>
-                    <div class="signal-marker marker-c"><span>137</span><small>automated tests</small></div>
-                </div>
-                <div class="signal-board-bottom">
-                    <span>Commercial impact</span>
-                    <span>Portfolio evidence</span>
-                    <span>2025—26</span>
-                </div>
-            </div>
-
-            <a class="scroll-cue" href="#proof">
-                <span>Scroll for evidence</span>
-                <i aria-hidden="true"></i>
-            </a>
+            <div class="hero-coordinate coordinate-one" aria-hidden="true">51.5072° N</div>
+            <div class="hero-coordinate coordinate-two" aria-hidden="true">0.1276° W</div>
         </header>
 
-        <section class="proof-strip" id="proof" aria-label="Impact highlights">
-            <article class="proof-item">
-                <strong data-count="30">30%</strong>
-                <span>less recurring data-processing time</span>
-            </article>
-            <article class="proof-item">
-                <strong data-count="25">25%</strong>
-                <span>less manual review effort</span>
-            </article>
-            <article class="proof-item">
-                <strong data-count="98">98%</strong>
-                <span>reporting accuracy after validation controls</span>
-            </article>
-            <article class="proof-item proof-credential">
-                <strong>MEng</strong>
-                <span>Computer Science with Artificial Intelligence</span>
-            </article>
-        </section>
-
-        <section class="section approach" aria-labelledby="approach-title">
-            <div class="section-heading">
-                <p class="eyebrow">How I create value</p>
-                <h2 id="approach-title">From unreliable inputs<br>to <em>confident decisions.</em></h2>
+        <div class="tool-tape" aria-label="Technical toolkit">
+            <div class="tool-tape-track">
+                <span>SQL</span><i>✦</i><span>PYTHON</span><i>✦</i><span>DBT</span><i>✦</i><span>DATABRICKS</span><i>✦</i><span>POWER BI</span><i>✦</i><span>SNOWFLAKE</span><i>✦</i><span>SPARK</span><i>✦</i><span>DUCKDB</span><i>✦</i>
+                <span>SQL</span><i>✦</i><span>PYTHON</span><i>✦</i><span>DBT</span><i>✦</i><span>DATABRICKS</span><i>✦</i><span>POWER BI</span><i>✦</i><span>SNOWFLAKE</span><i>✦</i><span>SPARK</span><i>✦</i><span>DUCKDB</span><i>✦</i>
             </div>
-            <div class="approach-grid">
-                <article class="approach-card">
-                    <span class="card-index">01</span>
-                    <div class="approach-icon approach-icon-pipeline" aria-hidden="true"><i></i><i></i><i></i></div>
-                    <h3>Automate the work</h3>
-                    <p>Replace repetitive extracts, spreadsheet hand-offs and manual checks with dependable SQL and Python workflows.</p>
-                    <span class="card-outcome">Outcome: faster reporting cycles</span>
-                </article>
-                <article class="approach-card featured">
-                    <span class="card-index">02</span>
-                    <div class="approach-icon approach-icon-model" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-                    <h3>Model a trusted layer</h3>
-                    <p>Turn disconnected sources into documented, tested datasets with clear grain, logic and ownership.</p>
-                    <span class="card-outcome">Outcome: one defensible number</span>
-                </article>
-                <article class="approach-card">
-                    <span class="card-index">03</span>
-                    <div class="approach-icon approach-icon-decision" aria-hidden="true"><i></i><i></i><i></i></div>
-                    <h3>Make insight useful</h3>
-                    <p>Translate analysis into KPIs, dashboards and recommendations shaped around real stakeholder decisions.</p>
-                    <span class="card-outcome">Outcome: action, not dashboard noise</span>
-                </article>
-            </div>
-        </section>
+        </div>
 
-        <section class="section work" id="work" aria-labelledby="work-title">
-            <div class="section-heading work-heading">
-                <div>
-                    <p class="eyebrow eyebrow-light">Selected evidence</p>
-                    <h2 id="work-title">Credibility,<br><em>built in public.</em></h2>
+        <section class="work-section" id="work" aria-labelledby="work-title">
+            <div class="section-index">
+                <span>01 / Selected systems</span>
+                <span>Evidence before adjectives</span>
+            </div>
+            <div class="work-intro">
+                <h2 id="work-title">Three systems.<br><em>Every claim inspectable.</em></h2>
+                <p>These are not decorative mockups. Each build exposes its architecture, logic, quality controls, trade-offs and limitations in public.</p>
+            </div>
+
+            <div class="project-lab">
+                <div class="project-list" role="tablist" aria-label="Selected projects">
+                    <button class="project-tab active" id="tab-d2c" role="tab" aria-selected="true" aria-controls="panel-d2c" data-project="d2c">
+                        <span class="project-tab-number">01</span>
+                        <span class="project-tab-copy"><b>D2C data stack</b><small>Analytics engineering</small></span>
+                        <span class="project-tab-metric">137 tests</span>
+                        <span class="project-tab-arrow">↗</span>
+                    </button>
+                    <button class="project-tab" id="tab-aml" role="tab" aria-selected="false" aria-controls="panel-aml" data-project="aml" tabindex="-1">
+                        <span class="project-tab-number">02</span>
+                        <span class="project-tab-copy"><b>Crypto AML platform</b><small>Lakehouse / streaming / ML</small></span>
+                        <span class="project-tab-metric">203k transactions</span>
+                        <span class="project-tab-arrow">↗</span>
+                    </button>
+                    <button class="project-tab" id="tab-mmm" role="tab" aria-selected="false" aria-controls="panel-mmm" data-project="mmm" tabindex="-1">
+                        <span class="project-tab-number">03</span>
+                        <span class="project-tab-copy"><b>Marketing foundations</b><small>Measurement / modelling</small></span>
+                        <span class="project-tab-metric">118 tests</span>
+                        <span class="project-tab-arrow">↗</span>
+                    </button>
                 </div>
-                <p>Three end-to-end builds chosen for depth, business relevance and transparent evidence. Each repository documents architecture, trade-offs, quality controls and honest limitations.</p>
-            </div>
 
-            <div class="case-studies">
-                <article class="case-study case-d2c">
-                    <div class="case-copy">
-                        <div class="case-topline">
-                            <span class="case-number">01</span>
-                            <span class="case-type">Analytics engineering</span>
-                        </div>
-                        <h3>D2C Analytics<br>Engineering Platform</h3>
-                        <p class="case-lead">A production-minded dbt layer unifying Shopify, Klaviyo, Meta Ads and GA4 into trusted commercial metrics.</p>
-                        <ul class="case-results">
-                            <li><strong>31</strong><span>modular dbt models</span></li>
-                            <li><strong>137</strong><span>automated tests</span></li>
-                            <li><strong>&lt;60s</strong><span>complete local build</span></li>
-                        </ul>
-                        <p class="case-detail">Dimensional marts support blended ROAS, contribution-margin CAC, LTV, payback and retention—with DuckDB-to-Snowflake portability and CI on every pull request.</p>
-                        <div class="case-tags"><span>dbt</span><span>SQL</span><span>DuckDB</span><span>Snowflake</span><span>Power BI</span></div>
-                        <div class="case-links">
-                            <a href="https://github.com/amanimulira/D2C-Data-Stack" target="_blank" rel="noopener">Read the repository <span aria-hidden="true">↗</span></a>
-                            <a href="https://amanimulira.github.io/D2C-Data-Stack/" target="_blank" rel="noopener">View live evidence <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="case-visual d2c-visual" aria-hidden="true">
-                        <div class="visual-window">
-                            <div class="visual-toolbar"><i></i><i></i><i></i><span>commerce_health / overview</span></div>
-                            <div class="visual-kpis">
-                                <div><small>Blended ROAS</small><strong>3.42×</strong><span class="positive">+8.1%</span></div>
-                                <div><small>Contribution margin</small><strong>42.8%</strong><span class="positive">+3.4%</span></div>
-                                <div><small>Repeat rate</small><strong>31.6%</strong><span class="neutral">90 days</span></div>
+                <div class="project-panels">
+                    <article class="project-panel active" id="panel-d2c" role="tabpanel" aria-labelledby="tab-d2c" data-panel="d2c">
+                        <div class="panel-visual visual-d2c" aria-hidden="true">
+                            <div class="visual-label"><span>commerce_health</span><span>build 137/137</span></div>
+                            <div class="commerce-chart">
+                                <div class="chart-axis"><span>90D</span><span>60D</span><span>30D</span><span>NOW</span></div>
+                                <div class="chart-bars"><i style="--h:23%"></i><i style="--h:38%"></i><i style="--h:31%"></i><i style="--h:49%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:72%"></i><i style="--h:66%"></i><i style="--h:88%"></i><i style="--h:81%"></i></div>
+                                <div class="chart-callout"><small>blended roas</small><strong>3.42×</strong><span>+8.1%</span></div>
                             </div>
-                            <div class="visual-content">
-                                <div class="bars">
-                                    <span style="--h: 32%"></span><span style="--h: 44%"></span><span style="--h: 39%"></span><span style="--h: 61%"></span><span style="--h: 56%"></span><span style="--h: 72%"></span><span style="--h: 68%"></span><span style="--h: 82%"></span><span style="--h: 76%"></span><span style="--h: 92%"></span>
-                                </div>
-                                <div class="health-panel">
-                                    <small>Pipeline health</small>
-                                    <strong>137 / 137</strong>
-                                    <span>tests passing</span>
-                                    <div class="health-orbit"><i></i></div>
-                                </div>
+                            <div class="quality-matrix">
+                                <span>STG</span><i></i><i></i><i></i><i></i><i></i><span>INT</span><i></i><i></i><i></i><i></i><i></i><span>MART</span><i></i><i></i><i></i><i></i><i></i>
                             </div>
                         </div>
-                    </div>
-                </article>
-
-                <article class="case-study case-aml">
-                    <div class="case-copy">
-                        <div class="case-topline">
-                            <span class="case-number">02</span>
-                            <span class="case-type">Lakehouse · streaming · ML</span>
+                        <div class="panel-copy">
+                            <span class="panel-overline">Shopify + Klaviyo + Meta Ads + GA4</span>
+                            <h3>One commercial truth from four competing sources.</h3>
+                            <p>A production-minded dbt layer for blended ROAS, contribution-margin CAC, lifetime value, payback and retention—with documented grain and CI on every pull request.</p>
+                            <dl class="panel-stats"><div><dt>Models</dt><dd>31</dd></div><div><dt>Tests</dt><dd>137</dd></div><div><dt>Local build</dt><dd>&lt;60s</dd></div></dl>
+                            <div class="panel-links"><a href="https://github.com/amanimulira/D2C-Data-Stack" target="_blank" rel="noopener">Repository ↗</a><a href="https://amanimulira.github.io/D2C-Data-Stack/" target="_blank" rel="noopener">Live evidence ↗</a></div>
                         </div>
-                        <h3>Crypto AML<br>Monitoring Platform</h3>
-                        <p class="case-lead">A traceable transaction-monitoring design combining deterministic rules, graph motifs and ML scoring on Databricks.</p>
-                        <ul class="case-results">
-                            <li><strong>203k</strong><span>transactions analysed</span></li>
-                            <li><strong>83%</strong><span>combined precision</span></li>
-                            <li><strong>71%</strong><span>combined recall</span></li>
-                        </ul>
-                        <p class="case-detail">The project follows the signal from Kafka through Bronze, Silver and Gold layers to versioned alerts, evidence packs and governed investigator views.</p>
-                        <div class="case-tags"><span>Databricks</span><span>PySpark</span><span>Delta Lake</span><span>Kafka</span><span>MLflow</span></div>
-                        <div class="case-links">
-                            <a href="https://github.com/amanimulira/crypto-aml-pipeline" target="_blank" rel="noopener">Explore the architecture <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="case-visual aml-visual" aria-hidden="true">
-                        <div class="network-label label-source">Kafka</div>
-                        <div class="network-label label-bronze">Bronze</div>
-                        <div class="network-label label-silver">Silver</div>
-                        <div class="network-label label-score">Scoring</div>
-                        <div class="network-label label-alert">Gold alerts</div>
-                        <div class="network-line line-a"></div>
-                        <div class="network-line line-b"></div>
-                        <div class="network-line line-c"></div>
-                        <div class="network-line line-d"></div>
-                        <div class="risk-card">
-                            <span>decision_aggregator</span>
-                            <strong>REVIEW</strong>
-                            <dl>
-                                <div><dt>rule_signal</dt><dd>0.42</dd></div>
-                                <div><dt>graph_motif</dt><dd>0.77</dd></div>
-                                <div><dt>ml_score</dt><dd>0.86</dd></div>
-                            </dl>
-                            <small>evidence pack · versioned</small>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-study case-mmm">
-                    <div class="case-copy">
-                        <div class="case-topline">
-                            <span class="case-number">03</span>
-                            <span class="case-type">Marketing measurement</span>
-                        </div>
-                        <h3>Marketing Data<br>Foundations</h3>
-                        <p class="case-lead">A profit-aware analytics layer and Bayesian marketing-mix model for a multi-channel D2C brand.</p>
-                        <ul class="case-results">
-                            <li><strong>6</strong><span>sources centralised</span></li>
-                            <li><strong>118</strong><span>quality tests</span></li>
-                            <li><strong>5</strong><span>executive dashboards</span></li>
-                        </ul>
-                        <p class="case-detail">The build contrasts last-click claims with incremental contribution, connects spend to profit and makes assumptions explicit enough for Finance and Marketing to challenge.</p>
-                        <div class="case-tags"><span>dbt</span><span>DuckDB</span><span>Snowflake</span><span>PyMC</span><span>BI</span></div>
-                        <div class="case-links">
-                            <a href="https://github.com/amanimulira/marketing-data-foundations" target="_blank" rel="noopener">See the methodology <span aria-hidden="true">↗</span></a>
-                            <a href="https://github.com/amanimulira/aurelia-dashboards" target="_blank" rel="noopener">Open dashboards <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="case-visual mmm-visual" aria-hidden="true">
-                        <div class="mmm-header"><span>LAST-CLICK</span><span>INCREMENTAL</span></div>
-                        <div class="channel-row"><small>Email</small><div><i style="--w: 82%"></i></div><div><i style="--w: 44%"></i></div></div>
-                        <div class="channel-row"><small>Google brand</small><div><i style="--w: 74%"></i></div><div><i style="--w: 38%"></i></div></div>
-                        <div class="channel-row"><small>Meta prospecting</small><div><i style="--w: 28%"></i></div><div><i style="--w: 72%"></i></div></div>
-                        <div class="channel-row"><small>TikTok</small><div><i style="--w: 18%"></i></div><div><i style="--w: 58%"></i></div></div>
-                        <div class="mmm-callout">
-                            <small>Incremental MER</small>
-                            <strong>2.8×</strong>
-                            <span>profit-aware measurement</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <a class="all-work-link" href="https://github.com/amanimulira?tab=repositories" target="_blank" rel="noopener">
-                <span>View the full GitHub portfolio</span>
-                <span aria-hidden="true">↗</span>
-            </a>
-        </section>
-
-        <section class="section social-proof" id="social-proof" aria-labelledby="social-proof-title">
-            <div class="section-heading social-proof-heading">
-                <div>
-                    <p class="eyebrow">Projects on LinkedIn</p>
-                    <h2 id="social-proof-title">Building openly.<br><em>Explaining clearly.</em></h2>
-                </div>
-                <div class="social-proof-intro">
-                    <p>Short project notes that show the thinking behind the builds—from real-time pipelines and cloud warehousing to analytics products designed around business decisions.</p>
-                    <div class="feed-controls" aria-label="LinkedIn post controls">
-                        <button id="feed-prev" type="button" aria-label="Show previous LinkedIn post">←</button>
-                        <span><b id="feed-index">01</b> / 05</span>
-                        <button id="feed-next" type="button" aria-label="Show next LinkedIn post">→</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="linkedin-feed" id="linkedin-feed" tabindex="0" aria-label="LinkedIn project posts">
-                <div class="linkedin-track">
-                    <article class="linkedin-post">
-                        <div class="linkedin-post-meta"><span>Post 01</span><span>Project note</span></div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437438731407634432?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project post 1" loading="lazy"></iframe>
                     </article>
-                    <article class="linkedin-post">
-                        <div class="linkedin-post-meta"><span>Post 02</span><span>Project note</span></div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453558019319123968?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project post 2" loading="lazy"></iframe>
-                    </article>
-                    <article class="linkedin-post">
-                        <div class="linkedin-post-meta"><span>Post 03</span><span>Project note</span></div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7448488109660487680?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project post 3" loading="lazy"></iframe>
-                    </article>
-                    <article class="linkedin-post">
-                        <div class="linkedin-post-meta"><span>Post 04</span><span>Project note</span></div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437532825203105792?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project post 4" loading="lazy"></iframe>
-                    </article>
-                    <article class="linkedin-post">
-                        <div class="linkedin-post-meta"><span>Post 05</span><span>Project note</span></div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444036520136716288?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project post 5" loading="lazy"></iframe>
-                    </article>
-                </div>
-            </div>
 
-            <a class="social-profile-link" href="https://www.linkedin.com/in/amanimulira" target="_blank" rel="noopener">
-                <span>Follow the work on LinkedIn</span>
-                <span aria-hidden="true">↗</span>
-            </a>
-        </section>
-
-        <section class="section experience" id="experience" aria-labelledby="experience-title">
-            <div class="section-heading experience-heading">
-                <p class="eyebrow">Commercial experience</p>
-                <h2 id="experience-title">Built for the<br><em>real world.</em></h2>
-            </div>
-            <div class="experience-layout">
-                <aside class="experience-aside">
-                    <div class="role-mark">W</div>
-                    <span>Sep 2025—Present</span>
-                    <span>London · Hybrid</span>
-                </aside>
-                <article class="role">
-                    <div class="role-header">
-                        <div>
-                            <span>Wates Group</span>
-                            <h3>Finance Data Analyst</h3>
+                    <article class="project-panel" id="panel-aml" role="tabpanel" aria-labelledby="tab-aml" data-panel="aml" hidden>
+                        <div class="panel-visual visual-aml" aria-hidden="true">
+                            <div class="visual-label"><span>decision_aggregator</span><span>trace enabled</span></div>
+                            <div class="aml-network">
+                                <svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                                    <line pathLength="1" x1="10" y1="22" x2="30" y2="64"></line>
+                                    <line pathLength="1" x1="30" y1="64" x2="50" y2="24"></line>
+                                    <line pathLength="1" x1="50" y1="24" x2="70" y2="63"></line>
+                                    <line pathLength="1" x1="70" y1="63" x2="90" y2="23"></line>
+                                </svg>
+                                <span class="node node-a">KAFKA</span><span class="node node-b">BRONZE</span><span class="node node-c">SILVER</span><span class="node node-d">SCORE</span><span class="node node-e">ALERT</span>
+                            </div>
+                            <div class="decision-readout"><span>rule 0.42</span><span>graph 0.77</span><span>model 0.86</span><strong>REVIEW</strong></div>
                         </div>
-                        <span class="current-badge"><i></i> Current</span>
-                    </div>
-                    <p class="role-summary">Automating financial and operational workflows, building trusted reporting datasets and helping Finance, IT and Operations act on clearer evidence.</p>
-                    <div class="role-impact">
-                        <div><strong>30%</strong><span>faster recurring data processing</span></div>
-                        <div><strong>25%</strong><span>less manual review effort</span></div>
-                        <div><strong>20%</strong><span>fewer data discrepancies</span></div>
-                    </div>
-                    <ul class="role-list">
-                        <li>Developed automated SQL, Python, Excel and scheduled workflows for extraction, transformation and validation.</li>
-                        <li>Built reusable reporting datasets and Power BI dashboards across financial and operational KPIs.</li>
-                        <li>Defined transformation rules, KPI logic and acceptance criteria directly with cross-functional stakeholders.</li>
-                        <li>Added validation, reconciliation and documentation controls to improve accuracy, auditability and knowledge transfer.</li>
-                    </ul>
-                    <div class="case-tags role-tags"><span>SQL</span><span>Python</span><span>Power BI</span><span>Excel</span><span>Stakeholder partnership</span></div>
-                </article>
-            </div>
-        </section>
-
-        <section class="section about" id="about" aria-labelledby="about-title">
-            <div class="about-grid">
-                <div class="about-copy">
-                    <p class="eyebrow">About me</p>
-                    <h2 id="about-title">Analytical rigour.<br><em>Engineering discipline.</em></h2>
-                    <p>I’m a London-based data professional who enjoys the point where business questions meet technical systems. My work spans the full path from requirements and raw data to modelling, quality, analysis and executive communication.</p>
-                    <p>An MEng in Computer Science with Artificial Intelligence gives me the technical depth to explore complex systems; commercial Finance experience keeps the work grounded in reliability, clarity and outcomes.</p>
-                    <div class="about-actions">
-                        <a class="text-link" href="assets/Amani-Mulira-Data-Analyst-CV.pdf" download>Download Data Analyst CV <span aria-hidden="true">↗</span></a>
-                        <a class="text-link" href="assets/Amani-Mulira-Analytics-Engineer-CV.pdf" download>Download Analytics Engineer CV <span aria-hidden="true">↗</span></a>
-                    </div>
-                </div>
-                <div class="capability-board">
-                    <div class="capability-head">
-                        <span>Capability map</span><span>01—04</span>
-                    </div>
-                    <div class="capability-row">
-                        <span>Analytics &amp; BI</span>
-                        <p>SQL · Power BI · DAX · Excel · KPI design · root-cause analysis</p>
-                    </div>
-                    <div class="capability-row">
-                        <span>Modelling &amp; quality</span>
-                        <p>dbt · dimensional models · validation · reconciliation · documentation</p>
-                    </div>
-                    <div class="capability-row">
-                        <span>Data platforms</span>
-                        <p>Databricks · Spark · Snowflake · DuckDB · Delta Lake · PostgreSQL</p>
-                    </div>
-                    <div class="capability-row">
-                        <span>Delivery</span>
-                        <p>Python · Airflow · Docker · GitHub Actions · Terraform · stakeholder management</p>
-                    </div>
-                    <div class="education-card">
-                        <div>
-                            <span>University of Liverpool</span>
-                            <strong>MEng Computer Science<br>with Artificial Intelligence</strong>
+                        <div class="panel-copy">
+                            <span class="panel-overline">Kafka + Databricks + GraphFrames + MLflow</span>
+                            <h3>Traceable AML decisions, not a black-box score.</h3>
+                            <p>An end-to-end monitoring design that follows cryptocurrency transactions through medallion layers into versioned alerts, governed views and evidence packs.</p>
+                            <dl class="panel-stats"><div><dt>Transactions</dt><dd>203k</dd></div><div><dt>Precision</dt><dd>83%</dd></div><div><dt>Recall</dt><dd>71%</dd></div></dl>
+                            <div class="panel-links"><a href="https://github.com/amanimulira/crypto-aml-pipeline" target="_blank" rel="noopener">Architecture ↗</a></div>
                         </div>
-                        <span>2025</span>
-                    </div>
+                    </article>
+
+                    <article class="project-panel" id="panel-mmm" role="tabpanel" aria-labelledby="tab-mmm" data-panel="mmm" hidden>
+                        <div class="panel-visual visual-mmm" aria-hidden="true">
+                            <div class="visual-label"><span>credit_allocation</span><span>incremental view</span></div>
+                            <div class="allocation-chart">
+                                <div><span>Email</span><i style="--reported:82%;--incremental:44%"></i></div>
+                                <div><span>Brand search</span><i style="--reported:74%;--incremental:38%"></i></div>
+                                <div><span>Meta</span><i style="--reported:28%;--incremental:72%"></i></div>
+                                <div><span>TikTok</span><i style="--reported:18%;--incremental:58%"></i></div>
+                            </div>
+                            <div class="mmm-key"><span><i></i>reported</span><span><i></i>incremental</span><strong>2.8× MER</strong></div>
+                        </div>
+                        <div class="panel-copy">
+                            <span class="panel-overline">dbt + DuckDB + Snowflake + PyMC</span>
+                            <h3>Marketing measurement that Finance can challenge.</h3>
+                            <p>A profit-aware data layer and Bayesian marketing-mix model that separates platform-reported credit from incremental commercial contribution.</p>
+                            <dl class="panel-stats"><div><dt>Sources</dt><dd>6</dd></div><div><dt>Tests</dt><dd>118</dd></div><div><dt>Dashboards</dt><dd>5</dd></div></dl>
+                            <div class="panel-links"><a href="https://github.com/amanimulira/marketing-data-foundations" target="_blank" rel="noopener">Methodology ↗</a><a href="https://github.com/amanimulira/aurelia-dashboards" target="_blank" rel="noopener">Dashboards ↗</a></div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="contact" id="contact" aria-labelledby="contact-title">
-            <div class="contact-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
-            <p class="eyebrow eyebrow-light">A useful next conversation</p>
-            <h2 id="contact-title">Looking for someone who can<br>connect <em>data, detail and decisions?</em></h2>
-            <p>I’m open to data analyst, analytics engineering and junior data engineering opportunities in London and across the UK.</p>
-            <a class="button button-accent" href="mailto:amanimulira@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
-            <div class="contact-links">
-                <a href="mailto:amanimulira@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/amanimulira" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://github.com/amanimulira" target="_blank" rel="noopener">GitHub</a>
+        <section class="impact-section" id="impact" aria-labelledby="impact-title">
+            <div class="section-index section-index-light"><span>02 / Commercial impact</span><span>Wates Group / London</span></div>
+            <div class="impact-heading">
+                <div><span class="impact-date">SEP 2025—PRESENT</span><h2 id="impact-title">Finance Data<br><em>Analyst.</em></h2></div>
+                <p>Automating financial and operational workflows, building trusted reporting datasets and helping Finance, IT and Operations move from spreadsheet dependency to clearer evidence.</p>
+            </div>
+            <div class="impact-ledger">
+                <article><span class="ledger-number">30<sup>%</sup></span><h3>Faster recurring processing</h3><p>SQL, Python, Excel and scheduled workflows replaced repetitive extraction and validation steps.</p></article>
+                <article><span class="ledger-number">25<sup>%</sup></span><h3>Less manual review</h3><p>Reusable reporting logic and automated controls reduced effort spent checking routine outputs.</p></article>
+                <article><span class="ledger-number">20<sup>%</sup></span><h3>Fewer discrepancies</h3><p>Validation and reconciliation controls raised reporting accuracy to 98% across recurring outputs.</p></article>
+            </div>
+            <div class="impact-detail">
+                <span>Current remit</span>
+                <ul><li>Reporting datasets</li><li>KPI logic</li><li>Power BI</li><li>Data quality</li><li>Stakeholder requirements</li><li>Process automation</li></ul>
+            </div>
+        </section>
+
+        <section class="notes-section" id="notes" aria-labelledby="notes-title">
+            <div class="section-index"><span>03 / Public notebook</span><span>Build notes / LinkedIn</span></div>
+            <div class="notes-heading">
+                <h2 id="notes-title">The work is public.<br><em>So is the thinking.</em></h2>
+                <div><p>Short field notes on architecture, modelling and the decisions behind each build.</p><div class="notes-controls"><button id="notes-prev" type="button" aria-label="Previous post">←</button><span><b id="notes-index">01</b> / 05</span><button id="notes-next" type="button" aria-label="Next post">→</button></div></div>
+            </div>
+            <div class="notes-feed" id="notes-feed" tabindex="0" aria-label="LinkedIn project notes">
+                <div class="notes-track">
+                    <article class="note-card"><header><span>FIELD NOTE 01</span><span>LINKEDIN ↗</span></header><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437438731407634432?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project note 1" loading="lazy"></iframe></article>
+                    <article class="note-card"><header><span>FIELD NOTE 02</span><span>LINKEDIN ↗</span></header><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453558019319123968?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project note 2" loading="lazy"></iframe></article>
+                    <article class="note-card"><header><span>FIELD NOTE 03</span><span>LINKEDIN ↗</span></header><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7448488109660487680?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project note 3" loading="lazy"></iframe></article>
+                    <article class="note-card"><header><span>FIELD NOTE 04</span><span>LINKEDIN ↗</span></header><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437532825203105792?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project note 4" loading="lazy"></iframe></article>
+                    <article class="note-card"><header><span>FIELD NOTE 05</span><span>LINKEDIN ↗</span></header><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444036520136716288?collapsed=1" width="504" height="626" frameborder="0" allowfullscreen="" title="LinkedIn project note 5" loading="lazy"></iframe></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-section" id="profile" aria-labelledby="profile-title">
+            <div class="section-index"><span>04 / Profile</span><span>Rigour + relevance</span></div>
+            <div class="profile-grid">
+                <div class="profile-copy">
+                    <h2 id="profile-title">Technical depth.<br><em>Commercial judgement.</em></h2>
+                    <p>I work at the point where business questions meet technical systems—from requirements and raw inputs through modelling, validation, analysis and executive communication.</p>
+                    <p>An MEng in Computer Science with Artificial Intelligence gives me the technical foundation; commercial Finance experience keeps the work grounded in reliability and decisions.</p>
+                    <div class="profile-links"><a href="assets/Amani-Mulira-Data-Analyst-CV.pdf" download>Data Analyst CV ↗</a><a href="assets/Amani-Mulira-Analytics-Engineer-CV.pdf" download>Analytics Engineer CV ↗</a></div>
+                </div>
+                <div class="capability-index">
+                    <div class="capability-row"><span>01</span><b>Analytics &amp; BI</b><p>SQL · Power BI · DAX · Excel · KPI design · root-cause analysis</p></div>
+                    <div class="capability-row"><span>02</span><b>Modelling &amp; quality</b><p>dbt · dimensional models · validation · reconciliation · documentation</p></div>
+                    <div class="capability-row"><span>03</span><b>Data platforms</b><p>Databricks · Spark · Snowflake · DuckDB · Delta Lake · PostgreSQL</p></div>
+                    <div class="capability-row"><span>04</span><b>Delivery</b><p>Python · Airflow · Docker · GitHub Actions · Terraform · stakeholder management</p></div>
+                    <div class="education-row"><span>EDUCATION</span><b>MEng Computer Science<br>with Artificial Intelligence</b><p>University of Liverpool<br>2025</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-grid" aria-hidden="true"></div>
+            <span class="contact-kicker">Available for the right next challenge</span>
+            <h2 id="contact-title">LET’S MAKE<br><em>THE DATA MATTER.</em></h2>
+            <div class="contact-footer">
+                <p>Data analyst, analytics engineering and junior data engineering opportunities in London and across the UK.</p>
+                <a href="mailto:amanimulira@gmail.com">amanimulira@gmail.com <span>↗</span></a>
+                <div><a href="https://www.linkedin.com/in/amanimulira" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/amanimulira" target="_blank" rel="noopener">GitHub</a></div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div>
-            <span>Amani Mulira</span>
-            <span>Data Analyst · Analytics Engineer</span>
-        </div>
-        <span>London, UK · © <span id="year"></span></span>
-    </footer>
-
+    <footer class="footer"><span>AMANI MULIRA / DATA PRACTICE</span><span>LONDON, UK</span><span>© <b id="year"></b></span></footer>
     <script src="script.js"></script>
 </body>
 </html>
