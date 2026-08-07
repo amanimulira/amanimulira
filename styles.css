@@ -424,21 +424,19 @@ button { color: inherit; font: inherit; }
 .project-lab.visible .project-panel.active .node-d { animation-delay: .3s; }
 .project-lab.visible .project-panel.active .node-e { animation-delay: .4s; }
 @keyframes nodeIn { from { opacity: 0; scale: .55; } }
-.node-a { left: 5%; top: 12%; color: var(--acid); }
-.node-b { left: 26%; top: 48%; color: var(--orange); }
-.node-c { left: 46%; top: 14%; color: var(--blue); }
-.node-d { left: 67%; top: 47%; color: var(--acid); }
-.node-e { right: 3%; top: 13%; color: var(--ink); background: var(--orange); }
-.edge { position: absolute; z-index: 1; height: 1px; background: var(--white); transform: rotate(var(--angle)) scaleX(0); transform-origin: left; opacity: .6; }
-.edge-a { --angle: 37deg; width: 26%; left: 12%; top: 27%; }
-.edge-b { --angle: -34deg; width: 28%; left: 34%; top: 59%; }
-.edge-c { --angle: 35deg; width: 28%; left: 54%; top: 27%; }
-.edge-d { --angle: -38deg; width: 23%; left: 75%; top: 59%; }
-.project-lab.visible .project-panel.active .edge { animation: edgeDraw .5s var(--ease) .25s forwards; }
-.project-lab.visible .project-panel.active .edge-b { animation-delay: .35s; }
-.project-lab.visible .project-panel.active .edge-c { animation-delay: .45s; }
-.project-lab.visible .project-panel.active .edge-d { animation-delay: .55s; }
-@keyframes edgeDraw { to { transform: rotate(var(--angle)) scaleX(1); } }
+.node-a { left: 10%; top: 22%; color: var(--acid); }
+.node-b { left: 30%; top: 64%; color: var(--orange); }
+.node-c { left: 50%; top: 24%; color: var(--blue); }
+.node-d { left: 70%; top: 63%; color: var(--acid); }
+.node-e { left: 90%; top: 23%; color: var(--ink); background: var(--orange); }
+.node { translate: -50% -50%; }
+.network-links { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.network-links line { fill: none; stroke: var(--white); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: 0; }
+.project-lab.visible .project-panel.active .network-links line { animation: networkLinkIn .6s var(--ease) forwards; }
+.project-lab.visible .project-panel.active .network-links line:nth-child(2) { animation-delay: .12s; }
+.project-lab.visible .project-panel.active .network-links line:nth-child(3) { animation-delay: .24s; }
+.project-lab.visible .project-panel.active .network-links line:nth-child(4) { animation-delay: .36s; }
+@keyframes networkLinkIn { to { opacity: .68; } }
 .decision-readout { position: absolute; inset: auto 1rem 1rem; display: grid; grid-template-columns: repeat(3,1fr) auto; align-items: center; border: 1px solid var(--rule-light); }
 .decision-readout span, .decision-readout strong { padding: .8rem; border-right: 1px solid var(--rule-light); font-family: var(--mono); font-size: .52rem; text-transform: uppercase; }
 .decision-readout strong { color: var(--orange); border-right: 0; }
