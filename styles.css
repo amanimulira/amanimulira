@@ -192,6 +192,7 @@ button { color: inherit; font: inherit; }
     min-height: 100svh;
     padding: clamp(7.4rem, 13vh, 9.5rem) var(--pad) 2rem;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
     overflow: hidden;
     background: var(--ink);
@@ -223,6 +224,8 @@ button { color: inherit; font: inherit; }
 .availability-dot { width: .45rem; height: .45rem; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 .35rem rgba(215,255,84,.1); }
 
 .hero-title {
+    min-width: 0;
+    width: 100%;
     align-self: center;
     margin: clamp(3rem, 7vh, 5rem) 0;
     font-size: clamp(5.2rem, 14.8vw, 14.8rem);
@@ -254,6 +257,8 @@ button { color: inherit; font: inherit; }
 .motion-enabled .field-canvas { transition: opacity 1.2s var(--ease) .2s; }
 
 .hero-footer {
+    min-width: 0;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr auto 1.3fr;
     align-items: end;
@@ -641,6 +646,7 @@ button { color: inherit; font: inherit; }
     .brand-copy small { display: none; }
     .hero { min-height: 100svh; padding-bottom: 1.3rem; }
     .hero-title { margin: 4rem 0; font-size: clamp(4rem,20vw,7rem); }
+    .title-line-three { font-size: .64em; letter-spacing: -.06em; }
     .hero-intro { font-size: .78rem; }
     .hero-actions, .action { width: 100%; }
     .hero-proof { grid-template-columns: 1fr; border-top: 1px solid var(--rule-light); }
