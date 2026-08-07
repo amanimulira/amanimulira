@@ -1,4 +1,18 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!reduceMotion) document.documentElement.classList.add("motion-enabled");
+
+class MotionDirector {
+    constructor() {
+        if (reduceMotion) {
+            document.body.classList.add("is-ready");
+            return;
+        }
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            document.body.classList.add("is-ready");
+        }));
+    }
+}
 
 class Navigation {
     constructor() {
@@ -263,9 +277,10 @@ class HorizontalFeed {
 class Reveal {
     constructor() {
         const selectors = [
-            ".section-index", ".work-intro", ".project-lab", ".impact-heading",
-            ".impact-ledger", ".impact-detail", ".notes-heading", ".notes-feed",
-            ".profile-copy", ".capability-index", ".contact-section > *:not(.contact-grid)"
+            ".section-index", ".work-intro > *", ".project-lab", ".impact-heading > *",
+            ".impact-ledger article", ".impact-detail", ".notes-heading > *", ".notes-feed",
+            ".profile-copy", ".capability-row", ".education-row",
+            ".contact-section > *:not(.contact-grid)"
         ];
         this.elements = document.querySelectorAll(selectors.join(","));
         this.elements.forEach((element) => element.setAttribute("data-reveal", ""));
@@ -287,6 +302,7 @@ class Reveal {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    new MotionDirector();
     new Navigation();
     new LondonClock(document.getElementById("london-time"));
     new PageProgress(document.getElementById("page-progress-bar"));
