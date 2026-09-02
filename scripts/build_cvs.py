@@ -34,14 +34,14 @@ STYLES = {
     "small": ParagraphStyle("small", fontName="Helvetica", fontSize=9.2, leading=12.5, textColor=INK, spaceAfter=4),
 }
 
-# Confirmed professional responsibilities. No unsupported percentage improvements
-# or specific corrective action is attributed to the Ancora finding.
+# Confirmed professional responsibilities. Capacity is an estimate against the
+# previous process, not a claim of realised cash savings or headcount reductions.
 EXPERIENCE = [
     "<b>Financial planning:</b> Managed budgeting and forecasting reporting end to end with Financial Planning &amp; Analysis (FP&amp;A), from input collection and quality checks to Power BI, reducing preparation time and uncertainty around inputs.",
     "<b>Financial control:</b> Established working capital reports and ledger-level cost reporting supporting VAT reporting requirements, giving Finance teams clearer access to the information they need.",
     "<b>Commercial performance:</b> Built cost value reconciliation (CVR) and commercial reports covering labour, subcontractor and material spend by location, trade and operative. Translated Excel KPI logic into measures for large-contract performance reviews.",
     "<b>Data modelling:</b> Created Power BI semantic models from application data, Excel, SharePoint and SQL datasets; analysed MRI Maintain operational data to understand the activity behind performance measures.",
-    "<b>Processing analysis:</b> Reported on manual and automated volumes. Ancora analysis highlighted issues associated with low- or no-volume suppliers; subsequent reporting showed the gap narrowing and the system performing as required.",
+    "<b>Processing analysis:</b> Evaluated automated invoice processing software against baseline productivity to estimate staffing needs for additional volume and support the board investment case. Tracked improving accuracy, supplier patterns and workflow bottlenecks.",
     "<b>Cross-team delivery:</b> Translated Finance, Operations and Processing needs into technical requirements and KPI logic. Took ownership of delivery, communicating report logic and data-quality issues clearly to technical and non-technical colleagues.",
 ]
 
