@@ -338,6 +338,13 @@ button { cursor: pointer; }
 .note-list i { color: var(--blue); font-style: normal; }
 
 .profile-layout { margin-top: 40px; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(44px,8vw,90px); }
+.profile-portrait { width: min(220px,100%); margin: 0 0 30px; border: 1px solid var(--line); background: var(--paper); box-shadow: 7px 7px 0 #edf0f5; }
+.profile-portrait-bar { min-height: 27px; padding: 0 8px; display: grid; grid-template-columns: 8px minmax(0,1fr) auto; gap: 7px; align-items: center; border-bottom: 1px solid var(--line); color: var(--faint); font-family: var(--mono); font-size: 8px; }
+.profile-portrait-bar span:first-child { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+.profile-portrait-bar span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.profile-portrait img { width: 100%; height: auto; display: block; aspect-ratio: 1; object-fit: cover; }
+.profile-portrait figcaption { min-height: 30px; padding: 0 8px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); color: var(--faint); font-family: var(--mono); font-size: 8px; }
+.profile-portrait figcaption span:first-child { color: var(--blue); }
 .profile-copy p { margin: 0 0 18px; color: var(--muted); }
 .profile-copy .profile-lead { color: var(--ink); font-size: 21px; line-height: 1.35; letter-spacing: -.025em; }
 .text-command { margin-top: 10px; padding: 0 0 3px; border: 0; border-bottom: 1px solid var(--ink); background: transparent; font-size: 11px; font-weight: 600; }
@@ -463,6 +470,7 @@ dialog::backdrop { background: rgba(20,24,31,.3); backdrop-filter: blur(1px); }
     .note-list a { grid-template-columns: 30px minmax(0,1fr) 20px; }
     .note-list small { grid-column: 2; }
     .note-list i { grid-column: 3; grid-row: 1 / 3; }
+    .profile-portrait { width: min(190px,58vw); margin-bottom: 28px; }
     .capability-table > div { grid-template-columns: 30px 1fr; }
     .capability-table p { grid-column: 2; }
     .status-bar > div:first-child span:not(.status-branch) { display: none; }
