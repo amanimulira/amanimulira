@@ -143,7 +143,7 @@ class SectionTracker {
         this.sectionLine = document.getElementById("section-line");
         this.files = {
             overview: "overview.md",
-            work: "selected-work.json",
+            work: "project-index.json",
             experience: "experience.md",
             notes: "public-notes.txt",
             profile: "profile.md",

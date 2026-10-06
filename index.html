@@ -14,7 +14,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://amanimulira.github.io/amanimulira/">
     <link rel="icon" href="assets/amani-mulira-mark.png">
-    <link rel="stylesheet" href="styles.css?v=20260917-1">
+    <link rel="stylesheet" href="styles.css?v=20261006-1">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,7 +71,7 @@
                         <summary><span aria-hidden="true">⌄</span> PORTFOLIO</summary>
                         <a class="file-link active" href="#overview" data-nav-section="overview"><i class="file-mark file-mark-blue">M</i>overview.md</a>
                         <a class="file-link" href="#experience" data-nav-section="experience"><i class="file-mark file-mark-blue">M</i>experience.md</a>
-                        <a class="file-link" href="#work" data-nav-section="work"><i class="file-mark file-mark-yellow">{ }</i>selected-work.json</a>
+                        <a class="file-link" href="#work" data-nav-section="work"><i class="file-mark file-mark-yellow">{ }</i>project-index.json</a>
                         <a class="file-link" href="#notes" data-nav-section="notes"><i class="file-mark file-mark-green">N</i>public-notes.txt</a>
                         <a class="file-link" href="#profile" data-nav-section="profile"><i class="file-mark file-mark-blue">M</i>profile.md</a>
                         <a class="file-link" href="#contact" data-nav-section="contact"><i class="file-mark file-mark-red">@</i>contact.txt</a>
@@ -236,78 +236,96 @@
 
                     <section class="document-section observed-section" id="work" data-section="work" aria-labelledby="work-heading">
                         <div class="section-heading">
-                            <div><span class="section-number">02</span><div><p>selected-work.json</p><h2 id="work-heading">Personal projects</h2></div></div>
-                            <span>3 independent builds</span>
+                            <div><span class="section-number">02</span><div><p>project-index.json</p><h2 id="work-heading">Selected systems</h2></div></div>
+                            <span>4 case files + GitHub archive</span>
                         </div>
-                        <p class="section-intro">Independent projects that extend my workplace reporting experience into data modelling and engineering. Open each record for the business question, technical evidence and limitations; these are not Wates systems or client results.</p>
+                        <p class="section-intro">Independent builds selected for the question they answer, the controls they demonstrate and the quality of the evidence behind them. They use public or illustrative data and are separate from my work at Wates.</p>
 
-                        <div class="records" data-exclusive-details>
-                            <details class="record" open>
-                                <summary>
-                                    <span class="record-index">01</span>
-                                    <span class="record-name"><b>D2C data stack</b><small>Analytics engineering</small></span>
-                                    <span class="record-meta"><i class="state-dot"></i>137 tests</span>
-                                    <span class="record-toggle" aria-hidden="true">+</span>
-                                </summary>
-                                <div class="record-content"><div class="record-content-inner">
-                                    <div class="record-copy">
-                                        <p class="field-label">PROBLEM</p>
-                                        <h3>One commercial truth from four competing sources.</h3>
-                                        <p>A production-minded dbt layer joining Shopify, Klaviyo, Meta Ads and GA4 into contribution-margin CAC, blended ROAS, payback, lifetime value and retention models.</p>
-                                        <div class="record-links"><a href="https://github.com/amanimulira/D2C-Data-Stack" target="_blank" rel="noopener">Open repository ↗</a><a href="https://amanimulira.github.io/D2C-Data-Stack/" target="_blank" rel="noopener">View evidence ↗</a></div>
-                                    </div>
-                                    <div class="evidence-panel">
-                                        <p class="field-label">SYSTEM RECORD</p>
-                                        <dl><div><dt>Models</dt><dd>31</dd></div><div><dt>Tests</dt><dd>137</dd></div><div><dt>Local build</dt><dd>&lt;60s</dd></div><div><dt>Controls</dt><dd>CI on every PR</dd></div></dl>
-                                        <p class="limitation"><b>Documented limitation</b> Illustrative commerce data; designed to prove architecture and measurement logic, not proprietary client performance.</p>
-                                    </div>
-                                </div></div>
-                            </details>
-
-                            <details class="record">
-                                <summary>
-                                    <span class="record-index">02</span>
-                                    <span class="record-name"><b>Crypto AML platform</b><small>Lakehouse / streaming / ML</small></span>
-                                    <span class="record-meta"><i class="state-dot"></i>203k transactions</span>
-                                    <span class="record-toggle" aria-hidden="true">+</span>
-                                </summary>
-                                <div class="record-content"><div class="record-content-inner">
-                                    <div class="record-copy">
-                                        <p class="field-label">PROBLEM</p>
-                                        <h3>Traceable AML decisions, not a black-box score.</h3>
-                                        <p>An end-to-end monitoring design that follows cryptocurrency transactions through Kafka and Databricks medallion layers into versioned alerts, governed views and evidence packs.</p>
-                                        <div class="record-links"><a href="https://github.com/amanimulira/crypto-aml-pipeline" target="_blank" rel="noopener">Open architecture ↗</a></div>
-                                    </div>
-                                    <div class="evidence-panel">
-                                        <p class="field-label">SYSTEM RECORD</p>
-                                        <dl><div><dt>Transactions</dt><dd>203k</dd></div><div><dt>Precision</dt><dd>83%</dd></div><div><dt>Recall</dt><dd>71%</dd></div><div><dt>Decision trace</dt><dd>Rule + graph + model</dd></div></dl>
-                                        <p class="limitation"><b>Documented limitation</b> Synthetic transaction labels; model results demonstrate a reproducible investigation workflow rather than production detection efficacy.</p>
-                                    </div>
-                                </div></div>
-                            </details>
-
-                            <details class="record">
-                                <summary>
-                                    <span class="record-index">03</span>
-                                    <span class="record-name"><b>Marketing foundations</b><small>Measurement / modelling</small></span>
-                                    <span class="record-meta"><i class="state-dot"></i>118 tests</span>
-                                    <span class="record-toggle" aria-hidden="true">+</span>
-                                </summary>
-                                <div class="record-content"><div class="record-content-inner">
-                                    <div class="record-copy">
-                                        <p class="field-label">PROBLEM</p>
-                                        <h3>Marketing measurement that Finance can challenge.</h3>
-                                        <p>A profit-aware data layer and Bayesian marketing-mix model separating platform-reported credit from incremental commercial contribution.</p>
-                                        <div class="record-links"><a href="https://github.com/amanimulira/marketing-data-foundations" target="_blank" rel="noopener">Open methodology ↗</a><a href="https://github.com/amanimulira/aurelia-dashboards" target="_blank" rel="noopener">View dashboards ↗</a></div>
-                                    </div>
-                                    <div class="evidence-panel">
-                                        <p class="field-label">SYSTEM RECORD</p>
-                                        <dl><div><dt>Sources</dt><dd>6</dd></div><div><dt>Tests</dt><dd>118</dd></div><div><dt>Dashboards</dt><dd>5</dd></div><div><dt>Model</dt><dd>Bayesian MMM</dd></div></dl>
-                                        <p class="limitation"><b>Documented limitation</b> Portfolio data and priors are explicit. Outputs demonstrate the measurement method, not a claim about a live media budget.</p>
-                                    </div>
-                                </div></div>
-                            </details>
+                        <div class="project-toolbar" aria-label="GitHub project controls">
+                            <span><i aria-hidden="true"></i> github.com/amanimulira</span>
+                            <a href="https://github.com/amanimulira?tab=repositories" target="_blank" rel="noopener">View all repositories ↗</a>
                         </div>
+
+                        <article class="featured-project" aria-labelledby="aurelia-project-title">
+                            <header class="featured-project-header">
+                                <span>FEATURED / PRODUCT BUILD</span>
+                                <span><i aria-hidden="true"></i> PUBLIC CODE</span>
+                            </header>
+                            <div class="featured-project-body">
+                                <div class="featured-project-copy">
+                                    <p class="project-code">SYS.01 · MARKETING FINANCE</p>
+                                    <h3 id="aurelia-project-title">Aurelia</h3>
+                                    <p class="project-statement">Governed infrastructure for deciding where the next pound goes.</p>
+                                    <p>A multi-tenant platform that connects marketing evidence, metric definitions and human approval into one traceable decision record. The interface is only the inspection surface; the product is the evidence → approval → implementation → outcome chain beneath it.</p>
+                                    <div class="project-actions">
+                                        <a class="project-action-primary" href="https://github.com/amanimulira/aurelia-dashboards" target="_blank" rel="noopener">Inspect public dashboards ↗</a>
+                                        <a href="https://github.com/amanimulira/marketing-data-foundations" target="_blank" rel="noopener">Inspect data foundation ↗</a>
+                                    </div>
+                                </div>
+                                <div class="featured-project-system">
+                                    <p class="field-label">WHAT IT PROVES</p>
+                                    <dl>
+                                        <div><dt>Decision control</dt><dd>Evidence, review and outcome history</dd></div>
+                                        <div><dt>Data plane</dt><dd>BigQuery · Airbyte · dbt gold marts</dd></div>
+                                        <div><dt>Control plane</dt><dd>Next.js · PostgreSQL · Prisma</dd></div>
+                                        <div><dt>Guardrail</dt><dd>Agents recommend; humans approve</dd></div>
+                                    </dl>
+                                    <div class="project-tags" aria-label="Aurelia technologies"><span>TypeScript</span><span>BigQuery</span><span>dbt</span><span>Prisma</span><span>MCP</span></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="project-grid" aria-label="Selected technical case files">
+                            <article class="project-card">
+                                <header><span>CASE 02</span><span class="project-status"><i aria-hidden="true"></i> LIVE BI</span></header>
+                                <div class="project-card-body">
+                                    <p class="project-type">ANALYTICS ENGINEERING</p>
+                                    <h3>D2C data stack</h3>
+                                    <p class="project-card-lead">One commercial truth from Shopify, Klaviyo, Meta Ads and GA4.</p>
+                                    <p>A tested dbt layer for contribution-margin CAC, blended ROAS, payback, LTV and retention—built so Finance and Marketing can challenge the same numbers.</p>
+                                </div>
+                                <dl class="project-facts"><div><dt>Models</dt><dd>31</dd></div><div><dt>Tests</dt><dd>137</dd></div><div><dt>Build</dt><dd>&lt;60s</dd></div></dl>
+                                <footer><a href="https://amanimulira.github.io/D2C-Data-Stack/" target="_blank" rel="noopener">Live dashboard ↗</a><a href="https://github.com/amanimulira/D2C-Data-Stack" target="_blank" rel="noopener">GitHub ↗</a></footer>
+                            </article>
+
+                            <article class="project-card">
+                                <header><span>CASE 03</span><span class="project-status"><i aria-hidden="true"></i> REPRODUCIBLE</span></header>
+                                <div class="project-card-body">
+                                    <p class="project-type">STREAMING / LAKEHOUSE / ML</p>
+                                    <h3>Crypto AML platform</h3>
+                                    <p class="project-card-lead">Traceable investigation decisions, not a black-box score.</p>
+                                    <p>Streams public Elliptic transaction data through governed lakehouse layers into versioned alerts combining rules, graph patterns and machine-learning evidence.</p>
+                                </div>
+                                <dl class="project-facts"><div><dt>Transactions</dt><dd>203k</dd></div><div><dt>Precision</dt><dd>83%</dd></div><div><dt>Recall</dt><dd>71%</dd></div></dl>
+                                <footer><a href="https://github.com/amanimulira/crypto-aml-pipeline" target="_blank" rel="noopener">Architecture &amp; code ↗</a></footer>
+                            </article>
+
+                            <article class="project-card project-card-wide">
+                                <header><span>CASE 04</span><span class="project-status"><i aria-hidden="true"></i> END TO END</span></header>
+                                <div class="project-card-body">
+                                    <p class="project-type">CDC / STREAMING / WAREHOUSE</p>
+                                    <h3>Real-time banking pipeline</h3>
+                                    <p class="project-card-lead">From operational changes to analytics-ready history.</p>
+                                    <p>A seven-service reference architecture that captures PostgreSQL changes with Debezium and Kafka, lands partitioned Parquet in MinIO, then uses Airflow, Snowflake and dbt to build incremental facts and SCD2 dimensions.</p>
+                                </div>
+                                <dl class="project-facts"><div><dt>Services</dt><dd>7</dd></div><div><dt>Pattern</dt><dd>CDC</dd></div><div><dt>History</dt><dd>SCD2</dd></div></dl>
+                                <footer><a href="https://github.com/amanimulira/real-time-banking-data-pipeline" target="_blank" rel="noopener">Explore pipeline ↗</a></footer>
+                            </article>
+                        </div>
+
+                        <aside class="github-archive" aria-labelledby="github-archive-heading">
+                            <div class="github-archive-heading">
+                                <div><p>MORE FROM GITHUB</p><h3 id="github-archive-heading">Repository archive</h3></div>
+                                <a href="https://github.com/amanimulira" target="_blank" rel="noopener">@amanimulira ↗</a>
+                            </div>
+                            <div class="github-repo-list">
+                                <a href="https://github.com/amanimulira/marketing-data-foundations" target="_blank" rel="noopener"><span>Python</span><b>Marketing data foundations</b><small>dbt + Bayesian MMM reference stack</small><i>↗</i></a>
+                                <a href="https://amanimulira.vercel.app/" target="_blank" rel="noopener"><span>Live site</span><b>Neo Analytica</b><small>Product site and protected analytics workspace</small><i>↗</i></a>
+                                <a href="https://github.com/amanimulira/ETL-Pipeline" target="_blank" rel="noopener"><span>Data stack</span><b>ETL pipeline</b><small>Snowflake, dbt, Airflow and Docker</small><i>↗</i></a>
+                                <a href="https://github.com/amanimulira/sql-data-warehouse-project" target="_blank" rel="noopener"><span>SQL</span><b>Data warehouse project</b><small>ETL, dimensional modelling and analytics</small><i>↗</i></a>
+                                <a href="https://github.com/amanimulira/vjepa-implementation" target="_blank" rel="noopener"><span>Research</span><b>V-JEPA implementation</b><small>Video representation learning study</small><i>↗</i></a>
+                            </div>
+                        </aside>
                     </section>
 
                     <section class="document-section observed-section" id="notes" data-section="notes" aria-labelledby="notes-heading">
@@ -404,7 +422,7 @@
         <div class="command-results" role="listbox" aria-label="Portfolio commands">
             <button type="button" data-command="overview" data-command-label="overview home introduction"><span>▤</span><b>Go to overview</b><kbd>Home</kbd></button>
             <button type="button" data-command="experience" data-command-label="experience impact wates role"><span>#</span><b>View Wates experience</b><kbd>01</kbd></button>
-            <button type="button" data-command="work" data-command-label="work projects selected systems"><span>{ }</span><b>View personal projects</b><kbd>02</kbd></button>
+            <button type="button" data-command="work" data-command-label="work projects selected systems"><span>{ }</span><b>View selected systems</b><kbd>02</kbd></button>
             <button type="button" data-command="notes" data-command-label="notes linkedin public notebook"><span>N</span><b>Open public notebook</b><kbd>03</kbd></button>
             <button type="button" data-command="profile" data-command-label="profile skills education capabilities"><span>M</span><b>Open profile</b><kbd>04</kbd></button>
             <button type="button" data-command="cv" data-command-label="cv resume curriculum vitae download"><span>PDF</span><b>Download CV</b><kbd>File</kbd></button>
@@ -412,6 +430,6 @@
         <div class="command-help"><span>↑↓ navigate</span><span>↵ select</span><span>esc close</span></div>
     </dialog>
 
-    <script src="script.js?v=20260814-2"></script>
+    <script src="script.js?v=20261006-1"></script>
 </body>
 </html>
