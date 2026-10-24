@@ -311,7 +311,13 @@ button { cursor: pointer; }
 .role-entry > header { display: flex; align-items: start; justify-content: space-between; gap: 20px; }
 .role-entry header p { margin: 0 0 5px; color: var(--faint); font-family: var(--mono); font-size: 9px; letter-spacing: .06em; }
 .role-entry h3 { margin: 0; font-size: clamp(28px,4vw,42px); line-height: 1; letter-spacing: -.045em; }
+.role-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; color: var(--faint); font-family: var(--mono); font-size: 8px; white-space: nowrap; }
 .role-entry > p { max-width: 680px; margin: 20px 0 40px; color: var(--muted); }
+.experience-metrics { margin: -14px 0 40px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.experience-metrics > div { min-height: 104px; padding: 13px 14px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.experience-metrics dt { color: var(--faint); font-family: var(--mono); font-size: 8px; text-transform: uppercase; }
+.experience-metrics dd { margin: auto 0 0; font-size: clamp(24px,3.4vw,36px); line-height: 1; letter-spacing: -.05em; font-weight: 600; }
+.experience-metrics span { margin-top: 5px; color: var(--muted); font-size: 9px; }
 .report-register { border-top: 1px solid var(--line); }
 .report-entry { border-bottom: 1px solid var(--line); }
 .report-entry > summary { min-height: 88px; padding: 18px 0; display: grid; grid-template-columns: 46px minmax(0,1fr) 20px; gap: 16px; align-items: start; cursor: pointer; list-style: none; }
@@ -361,6 +367,21 @@ button { cursor: pointer; }
 .inline-details[open] summary span, .outcome-details[open] summary span { transform: rotate(45deg); }
 .inline-details > div { padding: 12px; display: flex; flex-wrap: wrap; gap: 7px; border-top: 1px solid var(--line); background: #f8f9fa; }
 .inline-details > div span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 2px; background: white; font-family: var(--mono); font-size: 9px; }
+
+.career-history { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); }
+.career-history > header { margin-bottom: 24px; }
+.career-history > header p { margin: 0 0 5px; color: var(--blue); font-family: var(--mono); font-size: 8px; font-weight: 600; letter-spacing: .08em; }
+.career-history > header h3 { margin: 0; font-size: clamp(23px,3vw,31px); line-height: 1.1; letter-spacing: -.04em; }
+.career-timeline { border-top: 1px solid var(--line); }
+.career-item { min-height: 190px; padding: 28px 0; display: grid; grid-template-columns: 108px minmax(0,1fr); gap: 28px; border-bottom: 1px solid var(--line); }
+.career-date { padding-top: 3px; display: flex; flex-direction: column; font-family: var(--mono); }
+.career-date span { color: var(--blue); font-size: 16px; font-weight: 600; }
+.career-date small { margin-top: 4px; color: var(--faint); font-size: 8px; }
+.career-copy > p:first-child { margin: 0 0 5px; color: var(--faint); font-family: var(--mono); font-size: 8px; letter-spacing: .05em; }
+.career-copy h4 { margin: 0; font-size: 20px; line-height: 1.25; letter-spacing: -.025em; }
+.career-copy > p:nth-of-type(2) { max-width: 72ch; margin: 14px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.career-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+.career-tags span { padding: 3px 7px; border: 1px solid var(--line); border-radius: 2px; background: var(--chrome); color: var(--muted); font-family: var(--mono); font-size: 8px; }
 
 .note-list { margin: 36px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .note-list a { min-height: 70px; padding: 12px 0; display: grid; grid-template-columns: 38px minmax(0,1fr) minmax(160px,.5fr) 24px; gap: 14px; align-items: center; border-bottom: 1px solid var(--line); }
@@ -496,6 +517,7 @@ dialog::backdrop { background: rgba(20,24,31,.3); backdrop-filter: blur(1px); }
     .document-actions { margin-left: 32px; }
     .impact-strip { margin-top: 42px; }
     .section-intro { margin-left: 0; }
+    .experience-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
     .project-grid { grid-template-columns: 1fr; }
     .project-card-wide { grid-column: auto; display: flex; }
     .project-card-wide .project-facts { border-top: 1px solid var(--line-soft); border-left: 0; }
@@ -539,6 +561,11 @@ dialog::backdrop { background: rgba(20,24,31,.3); backdrop-filter: blur(1px); }
     .github-archive-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
     .github-repo-list > a { padding-left: 4px; padding-right: 4px; grid-template-columns: 58px minmax(0,1fr) 18px; gap: 9px; }
     .role-entry > header { align-items: center; }
+    .role-meta { gap: 5px; }
+    .experience-metrics > div { min-height: 88px; padding: 11px; }
+    .career-item { grid-template-columns: 1fr; gap: 12px; }
+    .career-date { flex-direction: row; align-items: baseline; gap: 8px; }
+    .career-date small { margin-top: 0; }
     .report-entry > summary { grid-template-columns: 40px minmax(0,1fr) 18px; gap: 10px; }
     .report-body { padding: 0 0 20px; }
     .report-body dl > div { grid-template-columns: minmax(0,1fr); gap: 5px; }
