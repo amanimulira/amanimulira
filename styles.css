@@ -313,11 +313,16 @@ button { cursor: pointer; }
 .role-entry h3 { margin: 0; font-size: clamp(28px,4vw,42px); line-height: 1; letter-spacing: -.045em; }
 .role-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; color: var(--faint); font-family: var(--mono); font-size: 8px; white-space: nowrap; }
 .role-entry > p { max-width: 680px; margin: 26px 0 34px; color: var(--muted); line-height: 1.75; }
-.experience-metrics { margin: 0 0 54px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.experience-metrics { margin: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .experience-metrics > div { min-height: 116px; padding: 16px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .experience-metrics dt { color: var(--faint); font-family: var(--mono); font-size: 8px; text-transform: uppercase; }
 .experience-metrics dd { margin: auto 0 0; font-size: clamp(24px,3.4vw,36px); line-height: 1; letter-spacing: -.05em; font-weight: 600; }
 .experience-metrics span { margin-top: 5px; color: var(--muted); font-size: 9px; }
+.role-scope { margin: 0 0 54px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border: 1px solid var(--line); border-top: 0; background: var(--chrome); }
+.role-scope > div { min-height: 62px; padding: 12px 16px; display: flex; align-items: baseline; gap: 8px; border-right: 1px solid var(--line); }
+.role-scope > div:last-child { border-right: 0; }
+.role-scope dt { color: var(--blue); font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: -.03em; }
+.role-scope dd { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.35; }
 .report-register { border-top: 1px solid var(--line); }
 .report-entry { border-bottom: 1px solid var(--line); }
 .report-entry > summary { min-height: 98px; padding: 23px 0; display: grid; grid-template-columns: 46px minmax(0,1fr) 20px; gap: 18px; align-items: start; cursor: pointer; list-style: none; }
@@ -331,6 +336,7 @@ button { cursor: pointer; }
 .report-entry[open] .report-toggle { transform: rotate(45deg); color: var(--blue); }
 .report-body { padding: 2px 36px 34px 64px; font-size: 13px; line-height: 1.7; }
 .report-body > p { margin: 0 0 24px; color: var(--muted); }
+.report-body strong, .career-copy strong { color: var(--ink); font-weight: 650; }
 .report-body dl { margin: 0; border-top: 1px solid var(--line-soft); }
 .report-body dl > div { padding: 16px 0; display: grid; grid-template-columns: 112px minmax(0,1fr); gap: 18px; border-bottom: 1px solid var(--line-soft); }
 .report-body dt { color: var(--faint); font-family: var(--mono); font-size: 10px; }
@@ -519,6 +525,10 @@ dialog::backdrop { background: rgba(20,24,31,.3); backdrop-filter: blur(1px); }
     .impact-strip { margin-top: 42px; }
     .section-intro { margin: 28px 0 50px; }
     .experience-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .role-scope { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .role-scope > div { border-bottom: 1px solid var(--line); }
+    .role-scope > div:nth-child(2) { border-right: 0; }
+    .role-scope > div:nth-last-child(-n+2) { border-bottom: 0; }
     .project-grid { grid-template-columns: 1fr; }
     .project-card-wide { grid-column: auto; display: flex; }
     .project-card-wide .project-facts { border-top: 1px solid var(--line-soft); border-left: 0; }
@@ -565,8 +575,10 @@ dialog::backdrop { background: rgba(20,24,31,.3); backdrop-filter: blur(1px); }
     .role-entry > header { align-items: flex-start; flex-direction: column; gap: 18px; }
     .role-meta { flex-direction: row; align-items: center; gap: 10px; }
     .role-entry > p { margin-top: 30px; margin-bottom: 38px; }
-    .experience-metrics { margin-bottom: 58px; }
+    .experience-metrics { margin-bottom: 0; }
     .experience-metrics > div { min-height: 104px; padding: 14px; }
+    .role-scope { margin-bottom: 58px; }
+    .role-scope > div { min-height: 58px; }
     .report-entry > summary { min-height: 104px; padding-top: 24px; padding-bottom: 24px; }
     .career-history { margin-top: 82px; padding-top: 40px; }
     .career-history > header { margin-bottom: 30px; }
