@@ -31,6 +31,13 @@ h1,h2 { font-family:var(--serif); font-weight:400; }
 .intro-text { font-family:var(--serif); font-size:31px; line-height:1.35; letter-spacing:-.02em; max-width:36ch; }
 .intro > p:last-child { color:var(--muted); margin-top:19px; font-size:14px; max-width:76ch; }
 .intro strong { color:var(--ink); font-weight:500; }
+.impact-summary { margin-top:38px; }
+.impact-ledger { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--ink); border-bottom:1px solid var(--line); }
+.impact-ledger article { min-height:168px; padding:18px 15px 16px; display:flex; flex-direction:column; border-right:1px solid var(--line); }
+.impact-ledger article:last-child { border-right:0; }
+.impact-ledger strong { color:var(--accent); font-family:var(--serif); font-size:32px; line-height:1; font-weight:400; }
+.impact-ledger span { margin-top:9px; font-size:11px; line-height:1.4; font-weight:600; }
+.impact-ledger p { margin-top:auto; padding-top:18px; color:var(--muted); font-size:10px; line-height:1.55; }
 .resume-section { margin-top:43px; scroll-margin-top:25px; }
 .section-heading { display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding-bottom:13px; border-bottom:1px solid var(--ink); margin-bottom:25px; }
 .section-heading h2 { font-size:25px; line-height:1.2; }
@@ -89,6 +96,6 @@ h1,h2 { font-family:var(--serif); font-weight:400; }
 .repo-entry > a { font-size:11px; white-space:nowrap; margin-top:4px; }
 .project-return { display:flex; justify-content:space-between; gap:20px; margin-top:45px; padding-top:25px; border-top:1px solid var(--ink); font-size:12px; }
 @media (max-width:1260px) { .site-nav,.cv-layout,.footer { margin-left:5%; margin-right:5%; } .projects-layout { margin-left:8%; margin-right:8%; } .cv-layout { gap:55px; grid-template-columns:215px minmax(0,1fr); } }
-@media (max-width:850px) { .cv-layout { gap:35px; grid-template-columns:185px minmax(0,1fr); } .profile { padding-right:0; } .profile h1 { font-size:29px; } .intro-text { font-size:27px; } .job header { display:block; } .job time { display:block; margin-top:7px; } .site-nav nav { gap:20px; } }
+@media (max-width:850px) { .cv-layout { gap:35px; grid-template-columns:185px minmax(0,1fr); } .profile { padding-right:0; } .profile h1 { font-size:29px; } .intro-text { font-size:27px; } .impact-ledger { grid-template-columns:repeat(2,minmax(0,1fr)); } .impact-ledger article { min-height:142px; border-bottom:1px solid var(--line); } .impact-ledger article:nth-child(2) { border-right:0; } .impact-ledger article:nth-last-child(-n+2) { border-bottom:0; } .job header { display:block; } .job time { display:block; margin-top:7px; } .site-nav nav { gap:20px; } }
 @media (max-width:620px) { body { font-size:14px; } .site-nav { padding:20px 0 18px; flex-wrap:wrap; gap:15px; } .site-nav nav { width:100%; justify-content:space-between; gap:15px; font-size:12px; } .cv-layout { display:block; margin-top:32px; } .profile { display:grid; grid-template-columns:68px 1fr; gap:0 18px; margin-bottom:34px; padding-bottom:26px; border-bottom:1px solid var(--line); } .profile > img { grid-row:1/5; margin:0; width:68px; height:68px; } .profile h1 { font-size:30px; } .profile .role,.profile .location { grid-column:2; margin-top:3px; } .profile .cv-link { grid-column:2; margin-top:10px; margin-bottom:0; } .profile-details { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:25px 0 0; } .profile-details > div { padding:12px 0 0; } .profile-details > div:last-child { grid-column:1/-1; } .profile-details dd { font-size:11px; } .profile-email { display:none; } .intro-text { font-size:27px; } .section-heading h2 { font-size:25px; } .resume-section { margin-top:35px; } .accomplishments li { font-size:13px; } .projects-layout { margin:32px 5% 60px; } .projects-intro h1 { font-size:40px; } .project-section .sample-copy { display:block; } .project-section .sample-copy h3 { font-size:24px; margin-bottom:12px; } .repo-entry { grid-template-columns:1fr; gap:10px; } .footer { flex-wrap:wrap; gap:12px; } .projects-intro nav { gap:20px; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
